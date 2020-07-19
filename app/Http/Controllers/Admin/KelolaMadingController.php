@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class KelolaBeritaController extends Controller
+class KelolaMadingController extends Controller
 {
     public function index(Request $request)
     {
-        return view('pages.admin.kelola-berita.index');
+        return view('pages.admin.kelola-mading.index');
     }
 }

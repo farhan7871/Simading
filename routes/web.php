@@ -30,11 +30,14 @@ Route::prefix('admin')
     // ->middleware(['auth', 'admin'])
     ->group(function () {
 
-        Route::get('/kelola-berita', 'KelolaBeritaController@index')
-            ->name('kelola-berita');
-
         Route::get('/dashboard', 'DashboardController@index')
             ->name('dashboard');
+
+        Route::get('/kelola-mading', 'KelolaMadingController@index')
+            ->name('kelola-mading');
+
+        Route::get('/kelola-kategori', 'KelolaKategoriController@index')
+            ->name('kelola-kategori');
     });
 
 Auth::routes();

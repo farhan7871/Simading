@@ -26,9 +26,14 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('kelola-berita')}}">
+        <a class="nav-link" href="{{route('kelola-mading')}}">
             <i class="fas fa-folder-plus"></i>
-            <span>Kelola Berita</span></a>
+            <span>Kelola Mading</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('kelola-kategori')}}">
+            <i class="fas fa-folder-plus"></i>
+            <span>Kelola Kategori</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="table_pembelian.html">
