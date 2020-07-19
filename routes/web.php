@@ -32,7 +32,7 @@ Route::prefix('admin')
 
         Route::get('/kelola-berita', 'KelolaBeritaController@index')
             ->name('kelola-berita');
-        
+
         Route::get('/dashboard', 'DashboardController@index')
             ->name('dashboard');
     });
