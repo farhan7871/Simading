@@ -27,6 +27,6 @@ Route::prefix('admin')
     // ->middleware(['auth', 'admin'])
     ->group(function () {
 
-        Route::get('/penjualan', 'PenjualanController@index')
-            ->name('penjualan');
+        Route::get('/kelola-berita', 'KelolaBeritaController@index')
+            ->name('kelola-berita');
     });
