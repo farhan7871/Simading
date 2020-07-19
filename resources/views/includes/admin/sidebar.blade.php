@@ -13,8 +13,7 @@
     <!-- Nav Item - Dashboard -->
 
     <li class="nav-item">
-        <a class="nav-link dois" href="table_pembelian.html">
-            <i class="fas fa-user"></i>
+        <a class="nav-link disable">    
             <span>Selamat Datang, </span></a>
     </li>
 
@@ -24,17 +23,17 @@
 
     <li class="nav-item">
         <a class="nav-link" href="table_pembelian.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-home"></i>
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="table_pembelian.html">
-            <i class="far fa-newspaper"></i>
+            <i class="fas fa-folder-plus"></i>
             <span>Kelola Berita</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="table_pembelian.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-user"></i>
             <span>User</span></a>
     </li>
     

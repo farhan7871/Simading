@@ -22,6 +22,9 @@ Route::get('/', function () {
 // Route::get('/', 'PenjualanController@index')
 //     ->name('penjualan');
 
+// Route::get('/', 'PenjualanController@index')
+//     ->name('penjualan');
+
 Route::prefix('admin')
     ->namespace('Admin')
     // ->middleware(['auth', 'admin'])

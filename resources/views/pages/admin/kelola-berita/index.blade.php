@@ -31,7 +31,7 @@
                                         <tr>
                                             <th>Gambar</th>
                                             <th>Deskripsi Berita</th>
-                                            <th>Tambah</th>
+                                            <th>Kategori</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -39,7 +39,7 @@
                                         <tr>
                                             <th>Gambar</th>
                                             <th>Deskripsi Berita</th>
-                                            <th>Tambah</th>
+                                            <th>Kategori</th>
                                             <th>Aksi</th>
 
                                         </tr>
@@ -47,7 +47,7 @@
                                     <tbody>
                                         <tr>
                                             <td>sss</td>
-                                            <td>Menjelaskan keadaan terkinir</td>
+                                            <td>Menjelaskan keadaan terkini</td>
                                             <td>dilihat</td>
                                             <td>
                                                 <a href="#" class="btn btn-primary mr-1">
@@ -60,7 +60,7 @@
                                         </tr>
                                         <tr>
                                             <td>sss</td>
-                                            <td>Menjelaskan keadaan terkinir</td>
+                                            <td>Menjelaskan keadaan terkini</td>
                                             <td>dilihat</td>
                                             <td>
                                                 <a href="#" class="btn btn-primary mr-1">
