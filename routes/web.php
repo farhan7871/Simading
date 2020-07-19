@@ -30,3 +30,7 @@ Route::prefix('admin')
         Route::get('/kelola-berita', 'KelolaBeritaController@index')
             ->name('kelola-berita');
     });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

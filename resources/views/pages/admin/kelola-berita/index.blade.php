@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 
+
+@section('title')
+        Kelola Berita
+    @endsection
+
 @section('content')
     
 
@@ -75,7 +80,6 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            </div>
             <!-- End of Main Content -->
             
 @endsection
