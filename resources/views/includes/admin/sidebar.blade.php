@@ -3,8 +3,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-
-        <div class="sidebar-brand-text mx-3">Universitas</div>
+        <div class="sidebar-brand-text mx-3">Mading Online Fakultas Teknik</div>
     </a>
 
     <!-- Divider -->
@@ -22,12 +21,12 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link" href="table_pembelian.html">
+        <a class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-home"></i>
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="table_pembelian.html">
+        <a class="nav-link" href="{{route('kelola-berita')}}">
             <i class="fas fa-folder-plus"></i>
             <span>Kelola Berita</span></a>
     </li>
@@ -35,6 +34,11 @@
         <a class="nav-link" href="table_pembelian.html">
             <i class="fas fa-user"></i>
             <span>User</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="table_pembelian.html">
+            <i class="fas fa-power-off"></i>
+            <span>Logout</span></a>
     </li>
     
 

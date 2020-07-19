@@ -22,8 +22,8 @@ Route::get('/', function () {
 // Route::get('/', 'PenjualanController@index')
 //     ->name('penjualan');
 
-// Route::get('/', 'PenjualanController@index')
-//     ->name('penjualan');
+// Route::get('/dashboard', 'DashboardController@index')
+//     ->name('dashboard');
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -32,6 +32,9 @@ Route::prefix('admin')
 
         Route::get('/kelola-berita', 'KelolaBeritaController@index')
             ->name('kelola-berita');
+        
+        Route::get('/dashboard', 'DashboardController@index')
+            ->name('dashboard');
     });
 
 Auth::routes();
