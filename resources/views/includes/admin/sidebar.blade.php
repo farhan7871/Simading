@@ -26,12 +26,12 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('kelola-mading')}}">
+        <a class="nav-link" href="{{route('kelola-mading.index')}}">
             <i class="fas fa-folder-plus"></i>
             <span>Kelola Mading</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('kelola-kategori')}}">
+        <a class="nav-link" href="#">
             <i class="fas fa-folder-plus"></i>
             <span>Kelola Kategori</span></a>
     </li>

@@ -1,23 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<html>
+
+<head>
+    <!-- Site made with Mobirise Website Builder v4.12.0, https://mobirise.com -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.0, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/logo-1.png" type="image/x-icon">
+    <meta name="description" content="">
+
     <title>@yield('title')</title>
 
-    @stack('prepend-style')
-    @include('includes.style')
-    @stack('addon-style')
-    
-  </head>
-  <body>
-    @include('includes.navbar')    
-    @yield('content')
-    @include('includes.footer')    
+    <link rel="stylesheet" href="{{url('frontend/assets/web/assets/mobirise-icons2/mobirise2.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/web/assets/mobirise-icons/mobirise-icons.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/bootstrap/css/bootstrap-grid.min.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/bootstrap/css/bootstrap-reboot.min.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/tether/tether.min.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/socicon/css/styles.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/dropdown/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/theme/css/style.css')}}">
+    <link rel="preload" as="style" href="{{url('frontend/assets/mobirise/css/mbr-additional.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/mobirise/css/mbr-additional.css')}}" type="text/css">
 
-    @stack('prepend-script')
-    @include('includes.script')
-    @stack('addon-script')
-  </body>
+</head>
+
+<body>
+    <section class="menu cid-s2aANidyVH" once="menu" id="menu2-n">
+        <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="menu-logo">
+                <div class="navbar-brand">
+                    <span class="navbar-logo">
+                        <a href="https://mobirise.co">
+                            <img src="{{URL::asset('frontend/assets/images/logo-1.png')}}" alt="Mobirise" title="" style="height: 3.8rem;">
+                            
+                        </a>
+                    </span>
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-info display-4"
+                            href="https://mobirise.co">Majalah Dinding Online Fakultas Teknik</a></span>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="https://mobirise.co"><span
+                                class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Beranda</a></li>
+                </ul>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="{{ route('login')}}">Admin</a></div>
+            </div>
+        </nav>
+    </section>
+
+   @yield('content')
+
+
+
+
+            <div class="footer-lower">
+                <div class="media-container-row">
+                    <div class="col-sm-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="media-container-row mbr-white">
+                    <div class="col-sm-6 copyright">
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            © 2020 Fakultas Teknik | Universitas Muhammadiyah Banjarmasin.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-list align-right">
+                            <div class="soc-item">
+                                <a href="https://twitter.com/mobirise" target="_blank">
+                                    <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                                </a>
+                            </div>
+                            <div class="soc-item">
+                                <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
+                                    <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                                </a>
+                            </div>
+                            <div class="soc-item">
+                                <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                                    <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                                </a>
+                            </div>
+                            <div class="soc-item">
+                                <a href="https://instagram.com/mobirise" target="_blank">
+                                    <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                                </a>
+                            </div>
+                            <div class="soc-item">
+                                <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
+                                    <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
+                                </a>
+                            </div>
+                            <div class="soc-item">
+                                <a href="https://www.behance.net/Mobirise" target="_blank">
+                                    <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{url('frontend/assets/popper/popper.min.js')}}"></script>
+    <script src="{{url('frontend/assets/web/assets/jquery/jquery.min.js')}}"></script>
+    <script src="{{url('frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{url('frontend/assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js')}}"></script>
+    <script src="{{url('frontend/assets/vimeoplayer/jquery.mb.vimeo_player.js')}}"></script>
+    <script src="{{url('frontend/assets/parallax/jarallax.min.js')}}"></script>
+    <script src="{{url('frontend/assets/ytplayer/jquery.mb.ytplayer.min.js')}}"></script>
+    <script src="{{url('frontend/assets/tether/tether.min.js')}}"></script>
+    <script src="{{url('frontend/assets/smoothscroll/smooth-scroll.js')}}"></script>
+    <script src="{{url('frontend/assets/sociallikes/social-likes.js')}}"></script>
+    <script src="{{url('frontend/assets/dropdown/js/nav-dropdown.js')}}"></script>
+    <script src="{{url('frontend/assets/dropdown/js/navbar-dropdown.js')}}"></script>
+    <script src="{{url('frontend/assets/touchswipe/jquery.touch-swipe.min.js')}}"></script>
+    <script src="{{url('frontend/assets/theme/js/script.js')}}"></script>
+    <script src="{{url('frontend/assets/slidervideo/script.js')}}"></script>
+
+
+</body>
+
 </html>

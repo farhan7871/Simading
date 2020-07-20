@@ -23,12 +23,13 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
+                                <a href="kelola-mading.create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
                                     class="fas fa-plus-square mr-2"></i>Tambah Mading</a>
                                     {{-- <i class="fas fa-plus-square"></i> --}}
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>id</th>
                                             <th>Gambar Mading</th>
                                             <th>Deskripsi</th>
                                             <th>Kategori</th>
@@ -37,6 +38,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>id</th>
                                             <th>Gambar Mading</th>
                                             <th>Deskripsi</th>
                                             <th>Kategori</th>
@@ -45,32 +47,32 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>sss</td>
-                                            <td>Menjelaskan keadaan terkini</td>
-                                            <td>dilihat</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary mr-1">
-                                                    Edit
-                                                </a>
-                                                <a href="#" class="btn btn-danger">
-                                                    Hapus
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>sss</td>
-                                            <td>Menjelaskan keadaan terkini</td>
-                                            <td>dilihat</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary mr-1">
-                                                    Edit
-                                                </a>
-                                                <a href="#" class="btn btn-danger">
-                                                    Hapus
-                                                </a>
-                                            </td>
-                                        </tr>
+
+                                        {{-- @forelse ($items as $item)
+    
+                                       <tr>
+                                           <td>{{ $item-> id}}</td>
+                                           <td>{{ $item-> gambar}}</td>
+                                           <td>{{ $item-> deskripsi}}</td>
+                                           <td>{{ $item-> kategori}}</td>
+                                           <td>
+                                               <a href="{{route('kelola-mading.edit', $item->id)}}" class="btn-btn-info">Edit</a>
+                                           </td>
+                                           <td>
+                                           <form action="{{route('kelola-mading.destroy', $item->id)}}" @method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger">Hapus</button>
+                                           </form>
+                                           </td>
+                                       </tr>
+                                       @empty
+                                       <tr>
+                                           <td colspan="7" class="text-center"></td>
+                                           Data Kosongg
+                                       </tr>
+                                        @endforelse --}}
+                                        
                                     </tbody>
                                 </table>
                             </div>
