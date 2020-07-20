@@ -46,11 +46,11 @@ class KelolaMadingController extends Controller
     public function store(Request $request)
     {
         //
-        $data = $request->all();
+        // $data = $request->all();
 
-        KelolaMading::create($data);
+        // KelolaMading::create($data);
 
-        return redirect()->route('kelola-berita.index');
+        // return redirect()->route('kelola-berita.index');
     }
 
     /**
