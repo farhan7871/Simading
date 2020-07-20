@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Request\Admin\KelolaMadingRequest;
+// use App\Http\Request\Admin\KelolaMadingRequest;
 use App\KelolaMading;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -28,7 +28,7 @@ class KelolaMadingController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     *e
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -43,7 +43,7 @@ class KelolaMadingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(KelolaMadingRequest $request)
+    public function store(Request $request)
     {
         //
         $data = $request->all();

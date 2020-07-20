@@ -1,4 +1,4 @@
-@extends('layouts.hallo')
+@extends('layouts.welcome')
 
 @section('title')
     Web Mading

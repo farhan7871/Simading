@@ -61,9 +61,6 @@
 
    @yield('content')
 
-
-
-
             <div class="footer-lower">
                 <div class="media-container-row">
                     <div class="col-sm-12">
