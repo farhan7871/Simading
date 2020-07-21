@@ -1,7 +1,7 @@
 @extends('layouts.welcome')
 
 @section('title')
-    Web Mading
+    Home
 @endsection
 
 @section('content')
