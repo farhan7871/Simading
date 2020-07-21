@@ -23,7 +23,7 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
+                                <a href="{{route('kelola-kategori.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
                                     class="fas fa-plus-square mr-2"></i>Tambah Kategori</a>
                                     {{-- <i class="fas fa-plus-square"></i> --}}
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
@@ -43,35 +43,33 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Pengumuman</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary mr-1">
-                                                    Edit
-                                                </a>
-                                                <a href="#" class="btn btn-danger">
-                                                    Hapus
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Lomba</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary mr-1">
-                                                    Edit
-                                                </a>
-                                                <a href="#" class="btn btn-danger">
-                                                    Hapus
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @forelse ($items as $item)
+                                            <tr>
+                                                <td>{{$item -> id}}</td>
+                                                <td>{{$item -> kategori}}</td>
+                                                <td>
+                                                    <a href="{{route('kelola-kategori.edit', $item-> id)}}" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                    </a>
+                                                    <form action="{{route('kelola-kategori.destroy', $item->id)}}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-danger">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="7" class="text-center">data kosong</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>
+                        </div>
 
                 </div>
                 <!-- /.container-fluid -->

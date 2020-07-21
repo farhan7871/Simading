@@ -21,12 +21,14 @@ class KelolaMadingRequest extends FormRequest
      *
      * @return array
      */
+
+    //  kualifikasi data dan kuantitasnya
     public function rules()
     {
         return [
             'gambar' => 'required|image',
-            'caption' => 'required|max:255',
-            'kategori' => 'required|max:255',
+            'deskripsi' => 'required|max:255',
+            'kelola_kategori_id' => 'required|integer|exists:kelola_kategoris,id'
         ];
     }
 }

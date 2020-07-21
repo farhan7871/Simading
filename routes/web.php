@@ -31,12 +31,10 @@ Route::prefix('admin')
             ->name('dashboard');
 
         // Menuju halaman kelola mading
+        Route::resource('kelola-kategori', 'KelolaKategoriController');
+
+        // Menuju halaman kelola mading
         Route::resource('kelola-mading', 'KelolaMadingController');
-
-
-
-        // Route::get('/kelola-kategori', 'KelolaKategoriController@index')
-        //     ->name('kelola-kategori');
     });
 
-Auth::routes(['verify => true']);
+Auth::routes(['verify' => true]);

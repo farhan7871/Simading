@@ -1,16 +1,22 @@
 @extends('layouts.admin')
 
+
+@section('title')
+       Edit Mading
+    @endsection
+
 @section('content')
-    <!-- Begin Page Content -->
-<div class="container-fluid">
+    
 
-    <!-- Page Heading -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                       <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Tambah Data Mading</h1>
-    </a>
-    </div>
+        <h1 class="h3 mb-0 text-gray-800">Edit Mading</h1>
+      </div>
 
-    @if ($errors->any())
+      @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $error)
@@ -20,9 +26,11 @@
         </div>
     @endif
 
-<div class="card shadow">
-    <div class="card-body">
-        <form action="{{route('kelola-mading.store')}}" method="post" enctype="multipart/form-data">
+
+    <div class="card shadow">
+        <div class="card-body">
+        <form action="{{route('kelola-mading.update', $item->id)}}" method="post" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
             <div class="form-group">
                 <label for="gambar">Gambar</label>
@@ -30,12 +38,12 @@
             </div>
             <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
-                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{old('deskripsi')}}">
+                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item->deskripsi}}">
             </div>
             <div class="form-group">
                 <label for="kelola_kategori_id">Kategori</label>
                 <select name="kelola_kategori_id" required class="form-control">
-                    <option value="">Pilih Kategori</option>
+                    <option value="{{$item->kelola_kategori_id}}">Jangan Diubah</option>
                     @foreach ($kelola_kategori as $kelola_kategoris)
                         <option value="{{$kelola_kategoris->id}}">
                         {{$kelola_kategoris->kategori}}
@@ -43,13 +51,12 @@
                     @endforeach
                 </select>
             </div>
-
-            <button type="submit" class="btn btn-primary btn-block">Simpan</button>
-        </form>
+            <button type="submit" class="btn btn-primary btn-block">Ubah</button>
+        </div>
+        </div>
     </div>
-</div>
+                <!-- /.container-fluid -->
 
-
-  </div>
-  <!-- /.container-fluid -->
+            <!-- End of Main Content -->
+            
 @endsection
