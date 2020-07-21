@@ -23,11 +23,11 @@ Route::get('/', function () {
 
 Route::prefix('admin')
     ->namespace('Admin')
-    // ->middleware(['auth', 'admin'])
+    ->middleware(['auth', 'admin'])
     ->group(function () {
 
         // Menuju halaman utama admin
-        Route::get('/dashboard', 'DashboardController@index')
+        Route::get('/', 'DashboardController@index')
             ->name('dashboard');
 
         // Menuju halaman kelola mading
@@ -40,5 +40,3 @@ Route::prefix('admin')
     });
 
 Auth::routes(['verify => true']);
-
-// Route::get('/home', 'HomeController@index')->name('home');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKelolaMadingTable extends Migration
+class CreateKelolaKategoriTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateKelolaMadingTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelola_mading', function (Blueprint $table) {
-            $table->id();
-            $table->text('gambar');
-            $table->string('caption');
-            $table->string('id_kategori');
+        Schema::create('kelola_kategori', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('kategori');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateKelolaMadingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('kelola_kategori');
     }
 }
