@@ -54,7 +54,6 @@
                     <li class="nav-item"><a class="nav-link link text-info display-4" href="https://mobirise.co"><span
                                 class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Beranda</a></li>
                 </ul>
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="{{ route('login')}}">Admin</a></div>
             </div>
         </nav>
     </section>
