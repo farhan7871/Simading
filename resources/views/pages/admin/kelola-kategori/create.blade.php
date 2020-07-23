@@ -32,7 +32,7 @@
         <form action="{{route('kelola-kategori.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="tkategori">Kategori</label>
+                <label for="kategori">Kategori</label>
                 <input type="text" class="form-control" name="kategori" placeholder="Kategori" value="{{old('kategori')}}">
             </div>
             <button type="submit" class="btn btn-primary btn-block">Simpan</button>

@@ -17,7 +17,7 @@ class KelolaKategori extends Model
     protected $hidden = [];
 
 
-    public function kelola_kategori()
+    public function kelola_mading()
     {
         return $this->hasMany(KelolaMading::class, 'kelola_kategori_id', 'id');
     }

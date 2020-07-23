@@ -171,28 +171,51 @@
     </div>
 </section>
 
-<section class="mbr-section content7 cid-s29GQfgBqV" id="content7-e">
+<section class="mbr-section content6 cid-s29GQfgBqV" id="content7-e">
     <div class="container">
-        <div class="media-container-row">
+        <div class="container">
+            @foreach ($items as $item)
+            <div class="row">
+              <div class="col">
+                <div class="media-container-row mt-4">
+                <div class="media-content">
+                    <div class="mbr-section-text">
+                        <p class="mbr-text align-right mb-0 mbr-fonts-style display-7">
+                            <h2>{{$item->judul}}</h2></p>
+                            <p>{{$item->deskripsi}}</p>
+                    </div>
+                </div>
+                <div class="mbr-figure" style="width: 60%;">
+                    <img src="{{Storage::url($item->gambar)}}" alt="Mobirise">
+                </div>
+            </div></div>
+              
+              
+            </div>
+            @endforeach 
+          </div>
+        {{-- <div class="media-container-row">
+            @foreach ($items as $item)
             <div class="col-12 col-md-8">
                 <div class="media-container-row">
                     <div class="media-content">
                         <div class="mbr-section-text">
                             <p class="mbr-text align-right mb-0 mbr-fonts-style display-7">
-                                <strong>Judul!</strong>&nbsp;Isi</p>
+                                <h2>{{$item->judul}}</h2></p>
+                                <p>{{$item->deskripsi}}</p>
                         </div>
                     </div>
                     <div class="mbr-figure" style="width: 60%;">
-                        <img src="{{URL::asset('frontend/assets/images/background1.jpg')}}" alt="Mobirise">
-          
+                        <img src="{{Storage::url($item->gambar)}}" alt="Mobirise">
                     </div>
                 </div>
             </div>
+            @endforeach --}}
         </div>
     </div>
 </section>
 
-<section class="mbr-section content6 cid-s29GPZ7w4N" id="content6-d">
+<section class="mbr-section content7 cid-s29GPZ7w4N" id="content6-d">
 
     <div class="container">
         <div class="media-container-row">

@@ -37,6 +37,10 @@
                 <input type="file" class="form-control" name="gambar" placeholder="gambar" >
             </div>
             <div class="form-group">
+                <label for="judul">Judul</label>
+                <input type="text" class="form-control" name="judul" placeholder="Judul" value="{{old('judul')}}">
+            </div>
+            <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
                 <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item->deskripsi}}">
             </div>

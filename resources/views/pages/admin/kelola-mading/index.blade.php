@@ -31,8 +31,9 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Gambar Mading</th>
+                                            <th>Judul</th>
                                             <th>Deskripsi</th>
-                                            <th>Kategori</th>
+                                            {{-- <th>Kategori</th> --}}
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -40,8 +41,9 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Gambar Mading</th>
+                                            <th>Judul</th>
                                             <th>Deskripsi</th>
-                                            <th>Kategori</th>
+                                            {{-- <th>Kategori</th> --}}
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
@@ -52,8 +54,9 @@
                                                 <td>
                                                     <img src="{{Storage::url($item->gambar)}}" alt="" style="width: 150px" class="img-thumbnail">
                                                 </td>
+                                                <td>{{$item -> judul}}</td>
                                                 <td>{{$item -> deskripsi}}</td>
-                                                <td>{{$item -> kelola_kategori->id}}</td>
+                                                {{-- <td>{{$item -> kelola_kategori_id}}</td> --}}
                                                 <td>
                                                     <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
@@ -61,7 +64,7 @@
                                                     <form action="{{route('kelola-mading.destroy', $item->id)}}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="btn btn-danger">
+                                                    <button class="btn btn-danger mt-2">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                     </form>
