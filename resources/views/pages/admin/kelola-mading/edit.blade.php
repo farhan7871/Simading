@@ -34,11 +34,11 @@
             @csrf
             <div class="form-group">
                 <label for="gambar">Gambar</label>
-                <input type="file" class="form-control" name="gambar" placeholder="gambar" >
+                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="{{$item->gambar}}">
             </div>
             <div class="form-group">
                 <label for="judul">Judul</label>
-                <input type="text" class="form-control" name="judul" placeholder="Judul" value="{{old('judul')}}">
+                <input type="text" class="form-control" name="judul" placeholder="Judul" value="{{$item->judul}}">
             </div>
             <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>

@@ -9,8 +9,6 @@
 <section class="engine"><a href="https://mobirise.info/y">html web templates</a></section>
 <section class="header12 cid-s2fw7tfn6W mbr-fullscreen mbr-parallax-background" id="header12-o">
 
-
-
     <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(35, 35, 35);">
     </div>
 
@@ -26,16 +24,14 @@
                 <div class="icons-media-container mbr-white">
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="https://mobirise.co/">
                                 <span class="mbr-iconfont socicon-mail socicon"></span>
-                            </a>
                         </div>
-                        <h5 class="mbr-fonts-style display-5">Email</h5>
+                        <h5 class="mbr-fonts-style display-5">ft@umbjm.ac.id</h5>
                     </div>
 
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="https://mobirise.co/">
+                            <a href="https://www.facebook.com/umbjm/">
                                 <span class="mbr-iconfont socicon-facebook socicon"></span>
                             </a>
                         </div>
@@ -44,7 +40,7 @@
 
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="https://mobirise.co/">
+                            <a href="https://www.instagram.com/ft_umbjm/">
                                 <span class="mbr-iconfont socicon-instagram socicon"></span>
                             </a>
                         </div>
@@ -53,9 +49,7 @@
 
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
-                            <a href="https://mobirise.co/">
                                 <span class="mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
-                            </a>
                         </div>
                         <h5 class="mbr-fonts-style display-5">(0511) 3363002</h5>
                     </div>
@@ -149,7 +143,7 @@
     </div>
 </section>
 
-<section class="mbr-section article content9 cid-s2fxhKEDmt" id="content9-q">
+{{-- <section class="mbr-section article content9 cid-s2fxhKEDmt" id="content9-q">
     <div class="container">
         <div class="inner-container" style="width: 100%;">
             <hr class="line" style="width: 25%;">
@@ -169,7 +163,7 @@
             <hr class="line" style="width: 25%;">
         </div>
     </div>
-</section>
+</section> --}}
 
 <section class="mbr-section content6 cid-s29GQfgBqV" id="content7-e">
     <div class="container">
@@ -194,98 +188,7 @@
             </div>
             @endforeach 
           </div>
-        {{-- <div class="media-container-row">
-            @foreach ($items as $item)
-            <div class="col-12 col-md-8">
-                <div class="media-container-row">
-                    <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text align-right mb-0 mbr-fonts-style display-7">
-                                <h2>{{$item->judul}}</h2></p>
-                                <p>{{$item->deskripsi}}</p>
-                        </div>
-                    </div>
-                    <div class="mbr-figure" style="width: 60%;">
-                        <img src="{{Storage::url($item->gambar)}}" alt="Mobirise">
-                    </div>
-                </div>
-            </div>
-            @endforeach --}}
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section content7 cid-s29GPZ7w4N" id="content6-d">
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="col-12 col-md-8">
-                <div class="media-container-row">
-                    <div class="mbr-figure" style="width: 60%;">
-                        <img src="{{URL::asset('frontend/assets/images/background1.jpg')}}" alt="Mobirise">
-                        
-                    </div>
-                    <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                                <strong>Judul!</strong>&nbsp;Isi</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="features11 cid-s29H6kMhEW" id="features11-g">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="media-container-row">
-                <div class="mbr-figure m-auto" style="width: 50%;">
-                    <img src="{{URL::asset('frontend/assets/images/background9.jpg')}}" alt="Mobirise" title="">    
-                </div>
-                <div class=" align-left aside-content">
-                    <h2 class="mbr-title pt-2 mbr-fonts-style display-2">
-                        Iklan</h2>
-                    <div class="mbr-section-text">
-                        <p class="mbr-text mb-5 pt-3 mbr-light mbr-fonts-style display-5">
-                            Pasang iklan disini aja.
-                        </p>
-                    </div>
-
-                    <div class="block-content">
-                        <div class="card p-3 pr-3">
-                            <div class="media">
-                                <div class=" align-self-center card-img pb-3">
-                                    <span class="mbr-iconfont mbri-like"></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="card-title mbr-fonts-style display-7"></h4>
-                                </div>
-                            </div>
-
-                            <div class="card-box">
-                                <p class="block-text mbr-fonts-style display-7"></p>
-                            </div>
-                        </div>
-
-                        <div class="card p-3 pr-3">
-                            <div class="media">
-                                <div class="align-self-center card-img pb-3">
-                                    <span class="mbr-iconfont mbri-hearth"></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="card-title mbr-fonts-style display-7"></h4>
-                                </div>
-                            </div>
-
-                            <div class="card-box">
-                                <p class="block-text mbr-fonts-style display-7"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
         </div>
     </div>
 </section>
@@ -295,7 +198,7 @@
         <div class="media-container-row">
             <div class="col-md-8 align-center">
                 <h2 class="pb-3 mbr-section-title mbr-fonts-style display-2">
-                    SHARE THIS PAGE!
+                    BAGIKAN HALAMAN INI!
                 </h2>
                 <div>
                     <div class="mbr-social-likes">

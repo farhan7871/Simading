@@ -42,13 +42,6 @@
     </li>
 
 
-    <li class="nav-item">
-        <a class="nav-link" href="table_pembelian.html">
-            <i class="fas fa-user"></i>
-            <span>User</span></a>
-    </li>
-
-
          {{-- keluar --}}
     <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">

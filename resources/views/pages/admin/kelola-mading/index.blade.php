@@ -29,12 +29,12 @@
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Gambar Mading</th>
-                                            <th>Judul</th>
-                                            <th>Deskripsi</th>
+                                            <th style="width:10%">ID</th>
+                                            <th style="width:15%">Gambar Mading</th>
+                                            <th style="width:20%">Judul</th>
+                                            <th style="width:40%">Deskripsi</th>
                                             {{-- <th>Kategori</th> --}}
-                                            <th>Aksi</th>
+                                            <th style="width:15%">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -64,7 +64,7 @@
                                                     <form action="{{route('kelola-mading.destroy', $item->id)}}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="btn btn-danger mt-2">
+                                                    <button class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                     </form>

@@ -40,18 +40,15 @@
             <div class="menu-logo">
                 <div class="navbar-brand">
                     <span class="navbar-logo">
-                        <a href="https://mobirise.co">
                             <img src="{{URL::asset('frontend/assets/images/logo-1.png')}}" alt="Mobirise" title="" style="height: 3.8rem;">
-                            
-                        </a>
                     </span>
                     <span class="navbar-caption-wrap"><a class="navbar-caption text-info display-4"
-                            href="https://mobirise.co">Majalah Dinding Online Fakultas Teknik</a></span>
+                            href="#">Majalah Dinding Online Fakultas Teknik</a></span>
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                    <li class="nav-item"><a class="nav-link link text-info display-4" href="https://mobirise.co"><span
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"><span
                                 class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Beranda</a></li>
                 </ul>
             </div>
@@ -74,22 +71,22 @@
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">
-                    Address
+                    Alamat
                 </h5>
                 <p class="mbr-text">Jl. Gubernur Syarkawi Kab. Barito Kuala, Kalimantan Selatan</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">
-                    Contacts
+                    Kontak
                 </h5>
                 <p class="mbr-text">
-                    Email: ft@umbjm.ac.id<br>Phone: (0511) 3363002&nbsp;</p>
+                    Email: ft@umbjm.ac.id<br>Telepon: (0511) 3363002&nbsp;</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-4">
                 <h5 class="pb-3">
-                    Links
+                    Link
                 </h5>
-                <p class="mbr-text">Find us on&nbsp;<a href="https://www.instagram.com/ft_umbjm">Instagram<br></a><br></p>
+                <p class="mbr-text">Temukan kami di &nbsp;<a href="https://www.instagram.com/ft_umbjm">Instagram<br></a><br></p>
             </div>
         </div>
 

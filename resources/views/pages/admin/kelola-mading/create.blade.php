@@ -34,8 +34,8 @@
             </div>
             <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
-                {{-- <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{old('deskripsi')}}"> --}}
-                <textarea name="about" rows="8" class="d-block w-100 form-control">{{old('deskripsi')}}</textarea>
+                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{old('deskripsi')}}">
+                {{-- <textarea name="about" rows="8" class="d-block w-100 form-control">{{old('deskripsi')}}</textarea> --}}
             </div>
             <div class="form-group">
                 <label for="kelola_kategori_id">Kategori</label>
