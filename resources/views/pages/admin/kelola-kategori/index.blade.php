@@ -29,9 +29,9 @@
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID Kategori</th>
-                                            <th>Nama Kategori</th>
-                                            <th>Aksi</th>
+                                            <th style="width:20%">ID Kategori</th>
+                                            <th style="width:65%">Nama Kategori</th>
+                                            <th style="width:15%">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
