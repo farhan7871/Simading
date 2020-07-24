@@ -27,8 +27,6 @@ class KelolaMadingRequest extends FormRequest
     {
         return [
             'gambar' => 'image',
-            'judul' => 'required|max:255',
-            'deskripsi' => 'max:255',
             'kelola_kategori_id' => 'required|integer|exists:kelola_kategoris,id'
         ];
     }

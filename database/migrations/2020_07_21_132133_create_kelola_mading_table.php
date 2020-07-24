@@ -16,7 +16,7 @@ class CreateKelolaMadingTable extends Migration
         Schema::create('kelola_mading', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('gambar');
-            $table->string('deskripsi');
+            //$table->string('deskripsi');
             $table->integer('kelola_kategori_id');
             $table->softDeletes();
             $table->timestamps();

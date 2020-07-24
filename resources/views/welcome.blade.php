@@ -172,13 +172,13 @@
             <div class="row">
               <div class="col">
                 <div class="media-container-row mt-4">
-                <div class="media-content">
+                {{-- <div class="media-content">
                     <div class="mbr-section-text">
                         <p class="mbr-text align-right mb-0 mbr-fonts-style display-7">
                             <h2>{{$item->judul}}</h2></p>
                             <p>{{$item->deskripsi}}</p>
                     </div>
-                </div>
+                </div> --}}
                 <div class="mbr-figure" style="width: 60%;">
                     <img src="{{Storage::url($item->gambar)}}" alt="Mobirise">
                 </div>

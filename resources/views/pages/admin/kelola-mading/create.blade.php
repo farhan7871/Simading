@@ -29,15 +29,6 @@
                 <input type="file" class="form-control" name="gambar" placeholder="gambar" >
             </div>
             <div class="form-group">
-                <label for="judul">Judul</label>
-                <input type="text" class="form-control" name="judul" placeholder="Judul" value="{{old('judul')}}">
-            </div>
-            <div class="form-group">
-                <label for="deskripsi">Deskripsi</label>
-                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{old('deskripsi')}}">
-                {{-- <textarea name="about" rows="8" class="d-block w-100 form-control">{{old('deskripsi')}}</textarea> --}}
-            </div>
-            <div class="form-group">
                 <label for="kelola_kategori_id">Kategori</label>
                 <select name="kelola_kategori_id" required class="form-control">
                     <option value="">Pilih Kategori</option>

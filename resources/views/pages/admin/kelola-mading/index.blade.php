@@ -30,9 +30,7 @@
                                     <thead>
                                         <tr>
                                             <th style="width:10%">ID</th>
-                                            <th style="width:15%">Gambar Mading</th>
-                                            <th style="width:20%">Judul</th>
-                                            <th style="width:40%">Deskripsi</th>
+                                            <th style="width:75%">Gambar Mading</th>
                                             {{-- <th>Kategori</th> --}}
                                             <th style="width:15%">Aksi</th>
                                         </tr>
@@ -41,8 +39,6 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Gambar Mading</th>
-                                            <th>Judul</th>
-                                            <th>Deskripsi</th>
                                             {{-- <th>Kategori</th> --}}
                                             <th>Aksi</th>
                                         </tr>
@@ -54,8 +50,8 @@
                                                 <td>
                                                     <img src="{{Storage::url($item->gambar)}}" alt="" style="width: 150px" class="img-thumbnail">
                                                 </td>
-                                                <td>{{$item -> judul}}</td>
-                                                <td>{{$item -> deskripsi}}</td>
+                                                {{-- <td>{{$item -> judul}}</td>
+                                                <td>{{$item -> deskripsi}}</td> --}}
                                                 {{-- <td>{{$item -> kelola_kategori_id}}</td> --}}
                                                 <td>
                                                     <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">

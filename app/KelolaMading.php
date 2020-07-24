@@ -11,7 +11,7 @@ class KelolaMading extends Model
 
     // menghubungkan dengan file request
     protected $fillable = [
-        'gambar', 'deskripsi', 'kelola_kategori_id', 'judul'
+        'gambar', 'kelola_kategori_id'
     ];
 
     protected $hidden = [];
