@@ -2,7 +2,7 @@
 
 
 @section('title')
-      Tambah Kategori
+      Admin | Tambah Kategori
     @endsection
 
 @section('content')

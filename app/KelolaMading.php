@@ -11,13 +11,20 @@ class KelolaMading extends Model
 
     // menghubungkan dengan file request
     protected $fillable = [
-        'gambar', 'kelola_kategori_id'
+        'kelola_kategori_id', 'deskripsi', 'gambar', 'users_id'
     ];
 
     protected $hidden = [];
 
     public function kelola_kategori()
     {
-        return $this->belongsTo(KelolaKategori::class, 'kelola_kategori_id', 'kategori', 'id');
+        return $this->belongsTo(KelolaKategori::class);
+        
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
     }
 }
+

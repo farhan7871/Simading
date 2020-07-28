@@ -1,9 +1,5 @@
 @extends('layouts.welcome')
 
-@section('title')
-    Home
-@endsection
-
 @section('content')
 
 <section class="engine"><a href="https://mobirise.info/y">html web templates</a></section>
@@ -12,7 +8,7 @@
     <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(35, 35, 35);">
     </div>
 
-    <div class="container  ">
+    <div class="container">
         <div class="media-container">
             <div class="col-md-12 align-center">
                 <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-1">
@@ -84,37 +80,36 @@
                                 <div class="image_wrapper">
                                     <div class="mbr-overlay"></div>
                                     <img src="{{URL::asset('frontend/assets/images/background1.jpg')}}" alt="" title="">
-                                    
-                                    
-                                    <div class="carousel-caption justify-content-center">
+                                      
+                                    {{-- <div class="carousel-caption justify-content-center">
                                         <div class="col-10 align-center">
-                                            <p class="lead mbr-text mbr-fonts-style display-7">Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.</p>
+                                            <p class="lead mbr-text mbr-fonts-style display-7"></p>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/background2.jpg);">
-                            <div class="container container-slide">
-                                <div class="image_wrapper">
-                                    <div class="mbr-overlay"></div>
-                                    <img src="{{URL::asset('frontend/assets/images/background2.jpg')}}" alt="" title="">
-                                    <div class="carousel-caption justify-content-center">
-                                        <div class="col-10 align-center">
-                                            <p class="lead mbr-text mbr-fonts-style display-7">Slide with youtube video background and color overlay. Title and text are aligned to the left.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/background3.jpg);">
+                        <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/background3.jpg);">
                             <div class="container container-slide">
                                 <div class="image_wrapper">
                                     <div class="mbr-overlay"></div>
                                     <img src="{{URL::asset('frontend/assets/images/background3.jpg')}}" alt="" title="">
+                                    {{-- <div class="carousel-caption justify-content-center">
+                                        <div class="col-10 align-center">
+                                            <p class="lead mbr-text mbr-fonts-style display-7">Slide with youtube video background and color overlay. Title and text are aligned to the left.</p>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/4.jpg);">
+                            <div class="container container-slide">
+                                <div class="image_wrapper">
+                                    <div class="mbr-overlay"></div>
+                                    <img src="{{URL::asset('frontend/assets/images/4.jpg')}}" alt="" title="">
                                     <div class="carousel-caption justify-content-center">
                                         <div class="col-10 align-center">
-                                            <p class="lead mbr-text mbr-fonts-style display-7">Choose from the large selection of latest pre-made blocks - jumbotrons, hero images, parallax scrolling, video backgrounds, hamburger menu, sticky header and more.</p>
+                                            <p class="lead mbr-text mbr-fonts-style display-7">Fakultas Teknik merupakan salah satu Fakultas yang ada di Universitas Muhammadiyah Banjarmasin</p>
                                         </div>
                                     </div>
                                 </div>
@@ -143,46 +138,23 @@
     </div>
 </section>
 
-{{-- <section class="mbr-section article content9 cid-s2fxhKEDmt" id="content9-q">
-    <div class="container">
-        <div class="inner-container" style="width: 100%;">
-            <hr class="line" style="width: 25%;">
-            <div class="section-text align-center mbr-fonts-style display-5">
-                Isi</div>
-            <hr class="line" style="width: 25%;">
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section article content10 cid-s2fxh0gGKy" id="content10-p">
-    <div class="container">
-        <div class="inner-container" style="width: 66%;">
-            <hr class="line" style="width: 25%;">
-            <div class="section-text align-center mbr-white mbr-fonts-style display-5">
-                Isi</div>
-            <hr class="line" style="width: 25%;">
-        </div>
-    </div>
-</section> --}}
 
 <section class="mbr-section content6 cid-s29GQfgBqV" id="content7-e">
     <div class="container">
         <div class="container">
             @foreach ($items as $item)
             <div class="row">
-              <div class="col">
+              <div class="col"> <center>
                 <div class="media-container-row mt-4">
-                {{-- <div class="media-content">
-                    <div class="mbr-section-text">
-                        <p class="mbr-text align-right mb-0 mbr-fonts-style display-7">
-                            <h2>{{$item->judul}}</h2></p>
-                            <p>{{$item->deskripsi}}</p>
-                    </div>
-                </div> --}}
                 <div class="mbr-figure" style="width: 60%;">
-                    <img src="{{Storage::url($item->gambar)}}" alt="Mobirise">
+                    <h2>{{$item -> kelola_kategori -> kategori}}</h2>
+                    <p> {{$item -> deskripsi}}</p>
+                    <img src="{{Storage::url($item->gambar)}}" > <br>
+                    <p> Terbit: {{$item -> created_at}}</p>
                 </div>
-            </div></div>
+                </div></center>
+                <br><br><br>
+            </div>
               
               
             </div>
@@ -205,9 +177,9 @@
                         <span class="btn btn-social socicon-bg-facebook facebook mx-2" title="Share link on Facebook">
                             <i class="socicon socicon-facebook"></i>
                         </span>
-                        <span class="btn btn-social twitter socicon-bg-twitter mx-2" title="Share link on Twitter">
+                        {{-- <span class="btn btn-social twitter socicon-bg-twitter mx-2" title="Share link on Twitter">
                             <i class="socicon socicon-twitter"></i>
-                        </span>
+                        </span> --}}
 
 
 

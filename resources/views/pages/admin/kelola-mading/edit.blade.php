@@ -2,7 +2,7 @@
 
 
 @section('title')
-       Edit Mading
+       Admin | Edit Mading
     @endsection
 
 @section('content')
@@ -33,28 +33,26 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label for="gambar">Gambar</label>
-                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="{{$item->gambar}}">
-            </div>
-            <div class="form-group">
-                <label for="judul">Judul</label>
-                <input type="text" class="form-control" name="judul" placeholder="Judul" value="{{$item->judul}}">
-            </div>
-            <div class="form-group">
-                <label for="deskripsi">Deskripsi</label>
-                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item->deskripsi}}">
-            </div>
-            <div class="form-group">
                 <label for="kelola_kategori_id">Kategori</label>
                 <select name="kelola_kategori_id" required class="form-control">
-                    <option value="{{$item->kelola_kategori_id}}">Jangan Diubah</option>
+                    <option value="{{$item->kelola_kategori_id}}">Pilih Kategori</option>
                     @foreach ($kelola_kategori as $kelola_kategoris)
-                        <option value="{{$kelola_kategoris->id}}">
-                        {{$kelola_kategoris->kategori}}
+                        <option value="{{$kelola_kategoris->id}}">{{$kelola_kategoris->kategori}}
                         </option>
                     @endforeach
                 </select>
             </div>
+            
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi</label>
+                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item->deskripsi}}">
+            </div>
+
+            <div class="form-group">
+                <label for="gambar">Gambar</label>
+                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="{{$item -> gambar}}">
+            </div>
+            
             <button type="submit" class="btn btn-primary btn-block">Ubah</button>
         </div>
         </div>

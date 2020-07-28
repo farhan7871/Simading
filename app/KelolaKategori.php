@@ -19,6 +19,6 @@ class KelolaKategori extends Model
 
     public function kelola_mading()
     {
-        return $this->hasMany(KelolaMading::class, 'kelola_kategori_id', 'id');
+        return $this->hasMany(KelolaMading::class);
     }
 }

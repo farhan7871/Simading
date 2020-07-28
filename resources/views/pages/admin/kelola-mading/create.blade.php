@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+        Admin | Tambah Mading
+    @endsection
+
 @section('content')
     <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -25,10 +29,6 @@
         <form action="{{route('kelola-mading.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="gambar">Gambar</label>
-                <input type="file" class="form-control" name="gambar" placeholder="gambar" >
-            </div>
-            <div class="form-group">
                 <label for="kelola_kategori_id">Kategori</label>
                 <select name="kelola_kategori_id" required class="form-control">
                     <option value="">Pilih Kategori</option>
@@ -40,7 +40,29 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi</label>
+                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" >
+            </div>
+
+            <div class="form-group">
+                <label for="gambar">Gambar</label>
+                <input type="file" class="form-control" name="gambar" placeholder="gambar" >
+            </div>
+
+            <div class="form-group">
+                <label for="users_id">Admin</label>
+                <select name="users_id" required class="form-control">
+                    <option value="">Pilih Admin</option>
+                    @foreach ($kelola_kategori as $kelola_kategoris)
+                        <option value="{{$kelola_kategoris->id}}">
+                        {{$kelola_kategoris->kategori}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Upload</button>
         </form>
     </div>
 </div>

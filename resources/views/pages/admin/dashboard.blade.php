@@ -2,7 +2,7 @@
 
 
 @section('title')
-        Kelola Berita
+        Admin | Dashboard
     @endsection
 
 @section('content')

@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{URL::asset('frontend/assets/images/logo-1.png')}}" type="image/x-icon">
     <meta name="description" content="">
 
-    <title>@yield('title')</title>
+    <title>Mading Online Fakultas Teknik</title>
 
     <link rel="stylesheet" href="{{url('frontend/assets/web/assets/mobirise-icons2/mobirise2.css')}}">
     <link rel="stylesheet" href="{{url('frontend/assets/web/assets/mobirise-icons/mobirise-icons.css')}}">

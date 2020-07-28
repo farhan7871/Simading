@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class KelolaMadingRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,15 +21,12 @@ class KelolaMadingRequest extends FormRequest
      *
      * @return array
      */
-
-    //  kualifikasi data dan kuantitasnya
     public function rules()
     {
         return [
-            'gambar' => 'image',
-            'deskripsi' => 'required|max:255',
-            'kelola_kategori_id' => 'required|integer|exists:kelola_kategoris,id',
-            'users_id' => 'required|integer|exists:users,id'
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|max:255',
         ];
     }
 }

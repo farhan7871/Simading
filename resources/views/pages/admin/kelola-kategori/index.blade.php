@@ -2,7 +2,7 @@
 
 
 @section('title')
-        Kelola Kategori
+        Admin | Kelola Kategori
     @endsection
 
 @section('content')
@@ -29,25 +29,27 @@
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width:20%">ID Kategori</th>
-                                            <th style="width:65%">Nama Kategori</th>
-                                            <th style="width:15%">Aksi</th>
+                                            <th style="width:20%"><center>ID Kategori</th>
+                                            <th style="width:65%"><center>Nama Kategori</th>
+                                            <th style="width:15%"><center>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID Kategori</th>
-                                            <th>Nama Kategori</th>
-                                            <th>Aksi</th>
+                                            <th><center>ID Kategori</th>
+                                            <th><center>Nama Kategori</th>
+                                            <th><center>Aksi</th>
 
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         @forelse ($items as $item)
                                             <tr>
-                                                <td>{{$item -> id}}</td>
+                                                <td><center> {{$loop -> iteration}}</td>
+
                                                 <td>{{$item -> kategori}}</td>
-                                                <td>
+
+                                                <td><center>
                                                     <a href="{{route('kelola-kategori.edit', $item-> id)}}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                     </a>

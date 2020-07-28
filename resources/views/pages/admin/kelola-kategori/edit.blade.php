@@ -2,7 +2,7 @@
 
 
 @section('title')
-       Edit Data Kategori
+       Admin | Edit Data Kategori
     @endsection
 
 @section('content')

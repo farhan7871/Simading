@@ -2,7 +2,7 @@
 
 
 @section('title')
-        Kelola Mading
+        Admin | Kelola Mading
     @endsection
 
 @section('content')
@@ -29,31 +29,45 @@
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width:10%">ID</th>
-                                            <th style="width:75%">Gambar Mading</th>
-                                            {{-- <th>Kategori</th> --}}
-                                            <th style="width:15%">Aksi</th>
+                                            <th style="width:10%"><center>ID</th>
+                                            <th style="width:12%"><center>Kategori</th>
+                                            <th style="width:20%"><center>Deskripsi</th>
+                                            <th style="width:20%"><center>Gambar Mading</th>
+                                            <th style="width:13%"><center>Diterbitkan</th>
+                                            <th style="width:10%"><center>Admin</th>
+                                            <th style="width:15%"><center>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Gambar Mading</th>
-                                            {{-- <th>Kategori</th> --}}
-                                            <th>Aksi</th>
+                                            <th><center>ID</th>                                            
+                                            <th><center>Kategori</th>
+                                            <th><center>Deskripsi</th>
+                                            <th><center>Gambar Mading</th>
+                                            <th><center>Diterbitkan</th>
+                                            <th><center>Admin</th>
+                                            <th><center>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         @forelse ($items as $item)
                                             <tr>
-                                                <td>{{$item -> id}}</td>
-                                                <td>
+                                                <td><center> {{$loop -> iteration}} </center></td>
+
+                                                <td>{{$item -> kelola_kategori -> kategori}}</td>
+
+
+                                                <td>{{$item -> deskripsi}}</td>
+
+                                                <td><center>
                                                     <img src="{{Storage::url($item->gambar)}}" alt="" style="width: 150px" class="img-thumbnail">
                                                 </td>
-                                                {{-- <td>{{$item -> judul}}</td>
-                                                <td>{{$item -> deskripsi}}</td> --}}
-                                                {{-- <td>{{$item -> kelola_kategori_id}}</td> --}}
-                                                <td>
+
+                                                <td>{{$item -> created_at}}</td>
+
+                                                {{-- <td>{{$item -> users -> name}} </td> --}}
+
+                                                <td> <center>
                                                     <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                     </a>
@@ -63,7 +77,7 @@
                                                     <button class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
-                                                    </form>
+                                                    </form> </center>
                                                 </td>
                                             </tr>
                                         @empty
