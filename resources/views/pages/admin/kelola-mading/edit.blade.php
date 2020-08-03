@@ -35,7 +35,7 @@
             <div class="form-group">
                 <label for="kelola_kategori_id">Kategori</label>
                 <select name="kelola_kategori_id" required class="form-control">
-                    <option value="{{$item->kelola_kategori_id}}">Pilih Kategori</option>
+                    <option value=""> {{$item -> kelola_kategori -> kategori}} </option>
                     @foreach ($kelola_kategori as $kelola_kategoris)
                         <option value="{{$kelola_kategoris->id}}">{{$kelola_kategoris->kategori}}
                         </option>
@@ -45,12 +45,27 @@
             
             <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
-                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item->deskripsi}}">
+                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item -> deskripsi}}">
             </div>
 
             <div class="form-group">
                 <label for="gambar">Gambar</label>
-                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="{{$item -> gambar}}">
+                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="">
+            </div>
+
+            <div class="form-group">
+                {{-- <img src="{{asset('assets/gallery' . $item -> gambar)}}" height="10%" width="50%"> --}}
+            </div>
+
+            <div class="form-group">
+                <label for="users_id">Admin</label>
+                <select name="users_id" required class="form-control">
+                    <option value="">{{$item -> users -> name}}</option>
+                    @foreach ($users as $user)
+                        <option value="{{$user->id}}" > {{$user->name}}
+                        </option>
+                    @endforeach
+                </select>
             </div>
             
             <button type="submit" class="btn btn-primary btn-block">Ubah</button>

@@ -65,7 +65,7 @@
 
                                                 <td>{{$item -> created_at}}</td>
 
-                                                {{-- <td>{{$item -> users -> name}} </td> --}}
+                                                <td>{{$item -> users -> name}} </td>
 
                                                 <td> <center>
                                                     <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">

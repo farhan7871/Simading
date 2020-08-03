@@ -20,7 +20,9 @@
                 <div class="icons-media-container mbr-white">
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
+                            <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNvwJtZGhRhDqnrhJdbKnsttFDkfjSztZfSXWrxMVnNGVwSFVdnQXFFdNlJxmBkWKTlqdq">
                                 <span class="mbr-iconfont socicon-mail socicon"></span>
+                            </a>
                         </div>
                         <h5 class="mbr-fonts-style display-5">ft@umbjm.ac.id</h5>
                     </div>

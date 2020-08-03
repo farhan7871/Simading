@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\KelolaMadingRequest;
 use App\KelolaMading;
 use App\KelolaKategori;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -20,7 +21,7 @@ class KelolaMadingController extends Controller
     //  fungsi memunculkan data dari halaman utama kelola mading 
     public function index()
     {
-        $items = KelolaMading::with(['kelola_kategori'])->get();
+        $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
 
         return view('pages.admin.kelola-mading.index', [
             'items' => $items
@@ -37,8 +38,10 @@ class KelolaMadingController extends Controller
     public function create()
     {
         $kelola_kategori = KelolaKategori::all();
+        $users = User::all();
         return view('pages.admin.kelola-mading.create', [
-            'kelola_kategori' => $kelola_kategori
+            'kelola_kategori' => $kelola_kategori,
+            'users' => $users
         ]);
     }
 
@@ -87,10 +90,12 @@ class KelolaMadingController extends Controller
     {
         $item = KelolaMading::findOrFail($id);
         $kelola_kategori = KelolaKategori::all();
+        $users = User::all();
 
         return view('pages.admin.kelola-mading.edit', [
             'item' => $item,
-            'kelola_kategori' => $kelola_kategori
+            'kelola_kategori' => $kelola_kategori,
+            'users' => $users
         ]);
     }
 

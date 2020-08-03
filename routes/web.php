@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/masuk', function () {
+//     return view('pages.admin.masuk');
+// });
+
+
 // Menuju halamana utama website
 Route::get('/', 'HomeController@index')
     ->name('home');

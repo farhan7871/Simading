@@ -33,8 +33,7 @@
                 <select name="kelola_kategori_id" required class="form-control">
                     <option value="">Pilih Kategori</option>
                     @foreach ($kelola_kategori as $kelola_kategoris)
-                        <option value="{{$kelola_kategoris->id}}">
-                        {{$kelola_kategoris->kategori}}
+                        <option value="{{$kelola_kategoris->id}}" > {{$kelola_kategoris->kategori}}
                         </option>
                     @endforeach
                 </select>
@@ -54,9 +53,8 @@
                 <label for="users_id">Admin</label>
                 <select name="users_id" required class="form-control">
                     <option value="">Pilih Admin</option>
-                    @foreach ($kelola_kategori as $kelola_kategoris)
-                        <option value="{{$kelola_kategoris->id}}">
-                        {{$kelola_kategoris->kategori}}
+                    @foreach ($users as $user)
+                        <option value="{{$user->id}}" > {{$user->name}}
                         </option>
                     @endforeach
                 </select>
