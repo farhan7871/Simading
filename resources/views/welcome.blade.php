@@ -47,7 +47,9 @@
 
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
+                            <a href="https://api.whatsapp.com/send?phone=625113363002">
                                 <span class="mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
+                            </a>
                         </div>
                         <h5 class="mbr-fonts-style display-5">(0511) 3363002</h5>
                     </div>
@@ -140,6 +142,30 @@
     </div>
 </section>
 
+<section class="mbr-section form3 cid-s8DA9JuJJu" id="form3-t">
+
+     <div class="container">
+               
+            <div class="row py-4 justify-content-center">
+                <div class="col-12 col-lg-6  col-md-8 " data-form-type="formoid">
+                    <!---Formbuilder Form--->
+                    <form action="{{route('home')}}" method="GET" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
+                        {{-- <input type="hidden" name="cari" data-form-email="true"> --}}
+                        <div class="row">
+                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                            </div>
+                        </div>
+                        <div class="dragArea row">
+                                <div class="input-group">
+                                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Pencarian..." aria-label="Search" aria-describedby="basic-addon2">
+                                    </div>
+                        </div>
+                    </form><!---Formbuilder Form--->
+                </div>
+            </div>
+        </div>
+    </section>
 
 <section class="mbr-section content6 cid-s29GQfgBqV" id="content7-e">
     <div class="container">
@@ -149,7 +175,7 @@
               <div class="col"> <center>
                 <div class="media-container-row mt-4">
                 <div class="mbr-figure" style="width: 60%;">
-                    <h2>{{$item -> kelola_kategori -> kategori}}</h2>
+                    <h2>{{$item -> kelola_kategori_kategori}}</h2>
                     <p> {{$item -> deskripsi}}</p>
                     <img src="{{Storage::url($item->gambar)}}" > <br>
                     <p> Terbit: {{$item -> created_at}}</p>

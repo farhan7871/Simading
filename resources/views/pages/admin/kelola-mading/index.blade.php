@@ -25,6 +25,19 @@
                             <div class="table-responsive">
                                 <a href="{{route('kelola-mading.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
                                     class="fas fa-plus-square mr-2"></i>Tambah Mading</a>
+                                
+                                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
+                                    method="GET" action="{{route('kelola-mading.index')}}">
+                                    <div class="input-group">
+                                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>     
+                                            </div>
+                                    </div>
+                                </form>
+
                                     {{-- <i class="fas fa-plus-square"></i> --}}
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
@@ -52,9 +65,9 @@
                                     <tbody>
                                         @forelse ($items as $item)
                                             <tr>
-                                                <td><center> {{$loop -> iteration}} </center></td>
+                                                <td><center> {{$item -> id}} </center></td>
 
-                                                <td>{{$item -> kelola_kategori -> kategori}}</td>
+                                                <td>{{$item -> kelola_kategori_kategori}}</td>
 
 
                                                 <td>{{$item -> deskripsi}}</td>

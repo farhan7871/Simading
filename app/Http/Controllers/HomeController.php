@@ -12,9 +12,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('cari')){
+            $items = KelolaMading::where('kelola_kategori_kategori', 'LIKE', '%'.$request->cari.'%')->get();
+        }else{
         $items = KelolaMading::with(['kelola_kategori'])->get();
+        }
+
         return view('welcome', [
             'items' => $items
         ]);

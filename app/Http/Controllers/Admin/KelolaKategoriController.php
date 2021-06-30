@@ -17,9 +17,15 @@ class KelolaKategoriController extends Controller
      */
 
     //  fungsi memunculkan data dari halaman utama kelola kategori
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('cari')){
+            $items = KelolaKategori::where('kategori', 'LIKE', '%'.$request->cari.'%')->get();
+        }else{
+
         $items = KelolaKategori::all();
+
+        }
 
         return view('pages.admin.kelola-kategori.index', [
             'items' => $items

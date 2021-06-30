@@ -34,11 +34,27 @@ Route::prefix('admin')
         Route::get('/', 'DashboardController@index')
             ->name('dashboard');
 
-        // Menuju halaman kelola mading
+        // Menuju halaman kelola kategori
         Route::resource('kelola-kategori', 'KelolaKategoriController');
 
         // Menuju halaman kelola mading
         Route::resource('kelola-mading', 'KelolaMadingController');
+    });
+
+    Route::prefix('user')
+    ->namespace('User')
+    ->middleware(['auth', 'user'])
+    ->group(function () {
+
+        // // Menuju halaman utama user
+        // Route::get('/', 'DashboardController@index')
+        //     ->name('dashboard');
+
+        // // Menuju halaman kelola kategori
+        // Route::resource('kelola-kategori', 'KelolaKategoriController');
+
+        // // Menuju halaman kelola mading
+        // Route::resource('kelola-mading', 'KelolaMadingController');
     });
 
 Auth::routes(['verify' => true]);

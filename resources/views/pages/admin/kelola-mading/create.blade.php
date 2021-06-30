@@ -29,24 +29,37 @@
         <form action="{{route('kelola-mading.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="kelola_kategori_id">Kategori</label>
+                <label for="kelola_kategori_id">ID Kategori</label>
                 <select name="kelola_kategori_id" required class="form-control">
                     <option value="">Pilih Kategori</option>
                     @foreach ($kelola_kategori as $kelola_kategoris)
-                        <option value="{{$kelola_kategoris->id}}" > {{$kelola_kategoris->kategori}}
+                        <option value="{{$kelola_kategoris->id}}"> {{$kelola_kategoris->kategori}}
+                        </option>
+                    @endforeach
+                    
+                </select>
+                     
+            </div>
+
+            <div class="form-group">
+                <label for="kelola_kategori_kategori">Kategori</label>
+                <select name="kelola_kategori_kategori" required class="form-control">
+                    <option value="">Pilih Kategori</option>
+                    @foreach ($kelola_kategori as $kelola_kategoris)
+                        <option value="{{$kelola_kategoris->kategori}}"> {{$kelola_kategoris->kategori}}
                         </option>
                     @endforeach
                 </select>
             </div>
-
+            
             <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
-                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" >
+                <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" required>
             </div>
 
             <div class="form-group">
                 <label for="gambar">Gambar</label>
-                <input type="file" class="form-control" name="gambar" placeholder="gambar" >
+                <input type="file" class="form-control" name="gambar" placeholder="gambar" required>
             </div>
 
             <div class="form-group">
@@ -60,7 +73,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Upload</button>
+            <button type="submit" class="btn btn-primary btn-block">Kirim</button>
         </form>
     </div>
 </div>

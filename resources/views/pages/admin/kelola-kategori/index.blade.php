@@ -26,6 +26,19 @@
                                 <a href="{{route('kelola-kategori.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
                                     class="fas fa-plus-square mr-2"></i>Tambah Kategori</a>
                                     {{-- <i class="fas fa-plus-square"></i> --}}
+
+                                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
+                                    method="GET" action="{{route('kelola-kategori.index')}}">
+                                    <div class="input-group">
+                                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>     
+                                            </div>
+                                    </div>
+                                </form>
+
                                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -45,7 +58,7 @@
                                     <tbody>
                                         @forelse ($items as $item)
                                             <tr>
-                                                <td><center> {{$loop -> iteration}}</td>
+                                                <td><center> {{$item -> id}}</td>
 
                                                 <td>{{$item -> kategori}}</td>
 

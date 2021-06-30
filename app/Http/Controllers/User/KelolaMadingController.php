@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\KelolaMadingRequest;
+use App\Http\Requests\User\KelolaMadingRequest;
 use App\KelolaMading;
-use App\KelolaKategori;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
