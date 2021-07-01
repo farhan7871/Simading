@@ -40,8 +40,6 @@
             <i class="fas fa-folder-plus"></i>
             <span>Kelola Mading</span></a>
     </li>
-
-
          {{-- keluar --}}
     <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">

@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 // Menuju halamana utama website
 Route::get('/', 'HomeController@index')
     ->name('home');

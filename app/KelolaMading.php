@@ -22,11 +22,6 @@ class KelolaMading extends Model
         
     }
 
-    public function kelola_kategori_kategori()
-    {
-        return $this->belongsTo(KelolaKategori::class, 'kelola_kategori_kategori', 'kategori');
-        
-    }
 
     public function users()
     {

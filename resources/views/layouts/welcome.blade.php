@@ -49,8 +49,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"><span
-                                class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"><span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"></span>Berita</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"></span>Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="#"></span>Keluar</a></li>
                 </ul>
 
 
