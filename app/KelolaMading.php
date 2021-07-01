@@ -18,13 +18,19 @@ class KelolaMading extends Model
 
     public function kelola_kategori()
     {
-        return $this->belongsTo(KelolaKategori::class);
+        return $this->belongsTo(KelolaKategori::class, 'kelola_kategori_id', 'id');
+        
+    }
+
+    public function kelola_kategori_kategori()
+    {
+        return $this->belongsTo(KelolaKategori::class, 'kelola_kategori_kategori', 'kategori');
         
     }
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'users_id', 'id');
     }
 }
 

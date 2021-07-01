@@ -177,7 +177,7 @@
                 <div class="mbr-figure" style="width: 60%;">
                     <h2>{{$item -> kelola_kategori_kategori}}</h2>
                     <p> {{$item -> deskripsi}}</p>
-                    <img src="{{Storage::url($item->gambar)}}" > <br>
+                    <img src="{{Storage::url($item->gambar)}}"> <br>
                     <p> Terbit: {{$item -> created_at}}</p>
                 </div>
                 </div></center>

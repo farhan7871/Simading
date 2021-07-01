@@ -11,7 +11,7 @@ class KelolaKategori extends Model
 
     // menghubungkan dengan file request
     protected $fillable = [
-        'kategori'
+        'id', 'kategori'
     ];
 
     protected $hidden = [];

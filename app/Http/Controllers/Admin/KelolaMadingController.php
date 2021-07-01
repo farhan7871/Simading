@@ -21,6 +21,9 @@ class KelolaMadingController extends Controller
     //  fungsi memunculkan data dari halaman utama kelola mading 
     public function index(Request $request)
     {
+        
+
+        
         if ($request->has('cari')){
             $items = KelolaMading::where('kelola_kategori_kategori', 'LIKE', '%'.$request->cari.'%')->get();
         }else{
@@ -61,6 +64,7 @@ class KelolaMadingController extends Controller
     //  fungsi yang mengarahkan data untuk melakukan penyimpanan foto 
     public function store(KelolaMadingRequest $request)
     {
+        
         $data = $request->all();
         $data['gambar'] = $request->file('gambar')->store(
             'assets/gallery',
@@ -116,6 +120,7 @@ class KelolaMadingController extends Controller
     //  fungsi untuk menyimpan data terbaru
     public function update(KelolaMadingRequest $request, $id)
     {
+        
         $data = $request->all();
 
         $data['gambar'] = $request->file('gambar')->store(
