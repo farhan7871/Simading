@@ -29,7 +29,7 @@
 
     <div class="card shadow">
         <div class="card-body">
-        <form action="{{route('kelola-mading.update', $item->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('kelola-mading.update', $item->id)}}" method="post">
             @method('PUT')
             @csrf
             <div class="form-group">

@@ -11,7 +11,7 @@
     <div class="container">
         <div class="media-container">
             <div class="col-md-12 align-center">
-                <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-1">
+                <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-1" style="margin-top:100px;">
                     MAJALAH DINDING ONLINE</h1>
                 <p class="mbr-text pb-3 mbr-white mbr-fonts-style display-5">
                     Fakultas Teknik Universitas Muhammadiyah Banjarmasin</p>

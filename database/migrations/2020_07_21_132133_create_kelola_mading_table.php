@@ -13,7 +13,7 @@ class CreateKelolaMadingTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelola_mading', function (Blueprint $table) {
+        Schema::create('kelola_madings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('gambar');
             $table->string('deskripsi');

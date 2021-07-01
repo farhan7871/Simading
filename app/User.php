@@ -44,21 +44,3 @@ class User extends Authenticatable
         return $this->hasMany(User::class);
     }
 }
-
-// class User extends Model
-// {
-//     use SoftDeletes;
-
-//     // menghubungkan dengan file request
-//     protected $fillable = [
-//         'name', 'email', 'password',
-//     ];
-
-//     protected $hidden = [];
-
-
-//     public function users()
-//     {
-//         return $this->hasMany(User::class);
-//     }
-// }
