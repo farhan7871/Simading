@@ -29,7 +29,7 @@
         <form action="{{route('kelola-mading.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="kelola_kategori_id">ID Kategori</label>
+                <label for="kelola_kategori_id">Kategori</label>
                 <select name="kelola_kategori_id" required class="form-control">
                     <option value="">Pilih Kategori</option>
                     @foreach ($kelola_kategori as $kelola_kategoris)
@@ -41,7 +41,7 @@
                      
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="kelola_kategori_kategori">Kategori</label>
                 <select name="kelola_kategori_kategori" required class="form-control">
                     <option value="">Pilih Kategori</option>
@@ -50,7 +50,7 @@
                         </option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
             
             <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>

@@ -50,11 +50,11 @@
 
             <div class="form-group">
                 <label for="gambar">Gambar</label>
-                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="{{$item -> gambar}}">
+                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="{{ $item -> gambar }}">
             </div>
 
             <div class="form-group">
-                {{-- <img src="{{asset('assets/gallery' . $item -> gambar)}}" height="10%" width="50%"> --}}
+                <img src="{{Storage::url($item->gambar)}}" style="width: 150px">
             </div>
 
             <div class="form-group">

@@ -102,6 +102,7 @@ class KelolaMadingController extends Controller
             'kelola_kategori' => $kelola_kategori,
             'users' => $users
         ]);
+        
     }
 
     /**
