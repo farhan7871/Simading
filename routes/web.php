@@ -26,6 +26,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/', 'HomeController@index')
     ->name('home');
 
+Route::get('/DetailMading', 'DetailMadingController@index')
+    ->name('detail-mading');
+
 
 Route::prefix('admin')
     ->namespace('Admin')
