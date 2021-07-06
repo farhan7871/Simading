@@ -34,7 +34,6 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->middleware(['auth', 'admin'])
     ->group(function () {
-
         // Menuju halaman utama admin
         Route::get('/', 'DashboardController@index')
             ->name('dashboard');
@@ -48,7 +47,7 @@ Route::prefix('admin')
 
     Route::prefix('user')
     ->namespace('User')
-    ->middleware(['auth', 'user'])
+    ->middleware(['auth', 'sender'])
     ->group(function () {
 
         // // Menuju halaman utama user
