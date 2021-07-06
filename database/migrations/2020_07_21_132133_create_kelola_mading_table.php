@@ -16,9 +16,9 @@ class CreateKelolaMadingTable extends Migration
         Schema::create('kelola_madings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->foreignId('kelola_kategori_id');
-            $table->foreign('kelola_kategori_id')->references('id')->on('kelola_kategori')->onDelete('cascade');
+            $table->foreign('kelola_kategori_id')->references('id')->on('kelola_kategori');
             $table->text('gambar');
             $table->string('deskripsi');
             $table->enum('status', [1,2,3]); // 1=pending, 2=revisi, 3=tolak

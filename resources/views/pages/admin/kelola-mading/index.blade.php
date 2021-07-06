@@ -23,8 +23,6 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <a href="{{route('kelola-mading.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
-                                    class="fas fa-plus-square mr-2"></i>Tambah Mading</a>
                                 
                                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
                                     method="GET" action="{{route('kelola-mading.index')}}">
@@ -82,6 +80,8 @@
 
                                                 <td> <center>
                                                     <!-- todo 1 bikin tombol lihat detail, muncul modal -->
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                             
                                                     <!-- todo 2 : tampilkan detail data post -->
                                                     <!-- todo 3 : buat tombol terima, ajukan revisi, delete -->
 

@@ -50,19 +50,11 @@
 
             <div class="form-group">
                 <label for="gambar">Gambar</label>
-<<<<<<< HEAD
                 <input type="file" class="form-control" name="gambar" placeholder="gambar" value="{{ $item -> gambar }}">
             </div>
 
             <div class="form-group">
                 <img src="{{Storage::url($item->gambar)}}" style="width: 150px">
-=======
-                <input type="file" class="form-control" name="gambar" placeholder="gambar" value="">
-            </div>
-
-            <div class="form-group">
-                <img src="{{Storage::url($item->gambar)}}" alt="" style="width: 150px" class="img-thumbnail">
->>>>>>> 26fb53de8b7cbc65c7940ae7d235939c36e14fd8
             </div>
 
             <div class="form-group">
