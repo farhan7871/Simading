@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/masuk', function () {
-//     return view('pages.admin.masuk');
-// });
+Route::get('/masuk', function () {
+    return view('pages.admin.masuk');
+});
 
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
