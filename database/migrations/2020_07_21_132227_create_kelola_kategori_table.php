@@ -14,7 +14,7 @@ class CreateKelolaKategoriTable extends Migration
     public function up()
     {
         Schema::create('kelola_kategori', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('kategori');
             $table->softDeletes();
             $table->timestamps();
