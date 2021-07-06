@@ -65,7 +65,7 @@
                                             <tr>
                                                 <td><center> {{$item -> id}} </center></td>
 
-                                                <td>{{$item -> kelola_kategori_kategori}}</td>
+                                                <td>{{$item -> kelola_kategori -> kategori}}</td>
 
 
                                                 <td>{{$item -> deskripsi}}</td>
