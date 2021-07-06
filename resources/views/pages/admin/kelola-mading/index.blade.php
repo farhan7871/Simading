@@ -81,16 +81,20 @@
                                                 <td>{{$item -> users -> name}} </td>
 
                                                 <td> <center>
-                                                    <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
+                                                    <!-- todo 1 bikin tombol lihat detail, muncul modal -->
+                                                    <!-- todo 2 : tampilkan detail data post -->
+                                                    <!-- todo 3 : buat tombol terima, ajukan revisi, delete -->
+
+                                                    <!-- <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                     </a>
                                                     <form action="{{route('kelola-mading.destroy', $item->id)}}" method="POST" class="d-inline">
-                                                    @csrf
+                                                    @csrf   
                                                     @method('delete')
                                                     <button class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
-                                                    </form> </center>
+                                                    </form> </center> -->
                                                 </td>
                                             </tr>
                                         @empty
