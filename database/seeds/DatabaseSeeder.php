@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             'level' => 'user',
         ]);
 
-        DB::table('kelola_kategori')->insert([
+        DB::table('kelola_kategoris')->insert([
             'kategori' => 'Seminar',
         ]);
 

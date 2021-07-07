@@ -8,4 +8,4 @@
 <link rel="shortcut icon" href="{{URL::asset('frontend/assets/images/logo-1.png')}}" type="image/x-icon">
 
 <!-- Custom styles for this page -->
-<link href={{url("backend/vendor/datatables/dataTables.bootstrap4.min.css")}} rel="stylesheet">
+

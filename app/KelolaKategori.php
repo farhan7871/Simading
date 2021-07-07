@@ -9,7 +9,7 @@ class KelolaKategori extends Model
 {
     use SoftDeletes;
     
-    protected $table = 'kelola_kategori';
+    // protected $table = 'kelola_kategori';
     // menghubungkan dengan file request
     protected $fillable = [
         'id', 'kategori'

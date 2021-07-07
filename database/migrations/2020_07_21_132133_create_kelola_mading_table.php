@@ -18,10 +18,10 @@ class CreateKelolaMadingTable extends Migration
             $table->foreignId('users_id');
             $table->foreign('users_id')->references('id')->on('users');
             $table->foreignId('kelola_kategori_id');
-            $table->foreign('kelola_kategori_id')->references('id')->on('kelola_kategori');
+            $table->foreign('kelola_kategori_id')->references('id')->on('kelola_kategoris');
             $table->text('gambar');
             $table->string('deskripsi');
-            $table->enum('status', [1,2,3]); // 1=pending, 2=revisi, 3=tolak
+            $table->enum('status', [1,2,3]); // 1=pending, 2=verif, 3=tolak
             $table->softDeletes();
             $table->timestamps();
         });
