@@ -32,14 +32,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Rayhan',
             'email' => 'rayhan@email.com',
             'password' => Hash::make(123456),
-            'level' => 'user',
+            'level' => 'sender',
         ]);
 
         DB::table('users')->insert([
             'name' => 'Fahri',
             'email' => 'fahri@email.com',
             'password' => Hash::make(123456),
-            'level' => 'user',
+            'level' => 'sender',
         ]);
 
         DB::table('kelola_kategoris')->insert([

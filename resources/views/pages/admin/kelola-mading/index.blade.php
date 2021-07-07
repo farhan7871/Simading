@@ -84,7 +84,11 @@
                                                         <!-- todo 2 : tampilkan detail data post -->
                                                         <!-- todo 3 : buat tombol terima, ajukan revisi, delete -->
                                                         @if ($item -> status == 1)
-                                                        <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-success" data-toggle="modal" data-target="#modalVerif">
+                                                        <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-success" data-toggle="modal" data-target="#modal-verif"
+                                                            data-id="{{$item->id}}"
+                                                            data-kategori="{{$item->kelola_kategori->kategori}}"
+                                                            data-deskripsi="{{$item->deskripsi}}"
+                                                            data-pengirim="{{$item->pengirim}}">
                                                             <i class="fa fa-clipboard-check"></i>
                                                         </a>
                                                         <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
@@ -122,7 +126,7 @@
                 </div>
                 
                <!-- VERIFY MODAL -->
-                <div class="modal fade" id="modalVerif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal-verif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -146,6 +150,10 @@
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Deskripsi</label>
                                     <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Diterbitkan</label>
+                                    <input type="text" class="form-control" id="recipient-name">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Pengirim</label>
