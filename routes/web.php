@@ -28,14 +28,20 @@ Route::get('/', 'HomeController@index')
 Route::get('/DetailMading', 'DetailMadingController@index')
     ->name('detail-mading');
 
+// login as sender page
 Route::get('/login/sender', function () {
-    return view('authv2.login');
+    return view('authv2.sender.login');
 })->name('login_sender_view');
 
-Route::get('/register/sender', function () {
-    return view('authv2.register');
-})->name('register_sender_view');
+Route::get('/login/admin', function () {
+    return view('authv2.admin.login');
+})->name('login_admin_view');
 
+// Route::get('/register/sender', function () {
+//     return view('authv2.sender.register');
+// })->name('register_sender_view');
+
+// auth handler
 Route::prefix('auth')
     ->namespace('Auth')
     ->group(function() {

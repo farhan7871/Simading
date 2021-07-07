@@ -53,8 +53,45 @@ class AuthController extends Controller {
         }
     }
 
-    public function loginAdmin() {
-        
+    public function loginAdmin(Request $request) {
+        try{
+
+            $user = User::where('email', $request->email)->first();
+
+        }catch(\Exception $e) {
+
+            Session::flash('error', 'Terdapat Kesalahan');
+            return redirect()->route('login_admin_view');
+
+        }
+
+        // if user hasn't created yet in the database
+        if (empty($user)) {
+
+            Session::flash('error', 'Pengguna Tidak Ditemukan');
+            return redirect()->route('login_admin_view');
+
+        }
+
+        // checking password user in database
+        if (Hash::check($request->password, $user->password)) {
+
+            Auth::login($user);
+            // returned authenticated user
+            if(Auth::user()->level == 'admin') {
+                return redirect()->route('dashboard');
+            } else {
+                Session::flash('error', 'Masuk pada halaman yang salah');
+                return redirect()->route('login_admin_view');    
+            }
+
+        } else {
+
+            // wrong input password
+            Session::flash('error', 'Kata Sandi Salah');
+            return redirect()->route('login_admin_view');
+
+        }
     }
 
     public function logout() {
