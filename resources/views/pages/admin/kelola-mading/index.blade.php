@@ -84,11 +84,12 @@
                                                         <!-- todo 2 : tampilkan detail data post -->
                                                         <!-- todo 3 : buat tombol terima, ajukan revisi, delete -->
                                                         @if ($item -> status == 1)
-                                                        <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-success" data-toggle="modal" data-target="#modal-verif"
+                                                        <a id="detail" href="#" class="btn btn-success" data-toggle="modal" data-target="#modal-verif"
                                                             data-id="{{$item->id}}"
                                                             data-kategori="{{$item->kelola_kategori->kategori}}"
                                                             data-deskripsi="{{$item->deskripsi}}"
-                                                            data-pengirim="{{$item->pengirim}}">
+                                                            data-diterbitkan="{{$item->created_at}}"
+                                                            data-pengirim="{{$item->users->name}}">
                                                             <i class="fa fa-clipboard-check"></i>
                                                         </a>
                                                         <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
@@ -141,23 +142,23 @@
                                 <img id="myImage" class="img-responsive" src="" alt="">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">ID</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="text" class="form-control" id="mading_id">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Kategori</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="text" class="form-control" id="mading_kategori">
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="message-text"></textarea>
+                                    <textarea class="form-control" id="mading_deskripsi"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Diterbitkan</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="text" class="form-control" id="mading_diterbitkan">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Pengirim</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="text" class="form-control" id="mading_pengirim">
                                 </div>
                         
                             </form>
@@ -169,6 +170,28 @@
                         </div>
                     </div>
                 </div>
+
+                <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                <script>
+                $(document).ready(function(){
+                    $(document).on('click','#detail', function(){
+
+                        // store data temp kedalam var temp
+                        var id_mading_temp = $(this).data('id')
+                        var kategori_mading_temp = $(this).data('kategori')
+                        var deskripsi_mading_temp = $(this).data('deskripsi')
+                        var diterbitkan_mading_temp = $(this).data('diterbitkan')
+                        var pengirim_mading_temp = $(this).data('pengirim')
+
+                        // ubah dalam modal
+                        $('#mading_id').val(id_mading_temp)
+                        $('#mading_kategori').val(kategori_mading_temp)
+                        $('#mading_deskripsi').val(deskripsi_mading_temp)
+                        $('#mading_diterbitkan').val(diterbitkan_mading_temp)
+                        $('#mading_pengirim').val(pengirim_mading_temp)
+                    })
+                })
+                </script>
                 <!-- /.container-fluid -->
 
             <!-- End of Main Content -->
