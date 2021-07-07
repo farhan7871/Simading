@@ -20,7 +20,6 @@ Route::get('/masuk', function () {
 });
 
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Menuju halamana utama website
 Route::get('/', 'HomeController@index')
@@ -29,6 +28,23 @@ Route::get('/', 'HomeController@index')
 Route::get('/DetailMading', 'DetailMadingController@index')
     ->name('detail-mading');
 
+Route::get('/login/sender', function () {
+    return view('authv2.login');
+})->name('login_sender_view');
+
+Route::get('/register/sender', function () {
+    return view('authv2.register');
+})->name('register_sender_view');
+
+Route::prefix('auth')
+    ->namespace('Auth')
+    ->group(function() {
+
+        Route::post('/login_sender','AuthController@loginSender')->name('login_sender');
+        Route::post('/login_admin','AuthController@loginAdmin')->name('login_admin');
+        Route::get('/logout', 'AuthController@logout')->name('logout');
+
+});
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -51,8 +67,8 @@ Route::prefix('admin')
     ->group(function () {
 
         // // Menuju halaman utama user
-        // Route::get('/', 'DashboardController@index')
-        //     ->name('dashboard');
+        Route::get('/', 'DashboardController@index')
+            ->name('dashboard_user');
 
         // // Menuju halaman kelola kategori
         // Route::resource('kelola-kategori', 'KelolaKategoriController');
