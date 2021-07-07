@@ -66,11 +66,7 @@ class KelolaMadingController extends Controller
     {
         
         $data = $request->all();
-        $data['gambar'] = $request->file('gambar')->store(
-            'assets/gallery',
-            'public'
-
-        );
+        $data['gambar'] = $request->file('gambar')->store('mading');
 
         KelolaMading::create($data);
         return redirect()->route('kelola-mading.index');
@@ -99,6 +95,7 @@ class KelolaMadingController extends Controller
     public function edit($id)
     {
         $item = KelolaMading::findOrFail($id);
+        // dd($item->gambar);
         $kelola_kategori = KelolaKategori::all();
         $users = User::all();
 
@@ -122,16 +119,23 @@ class KelolaMadingController extends Controller
     {
         
         $data = $request->all();
-
-        $data['gambar'] = $request->file('gambar')->store(
-            'assets/gallery',
-            'public'
-
-        );
-
         $item = KelolaMading::findOrFail($id);
 
+        // Unlink old image when update
+        $image_path = public_path().'/storage/'.$item->gambar;
+        unlink($image_path);
+
+        // store new image
+        $data['gambar'] = $request->file('gambar')->store('mading');
+
+
+
         $item->update($data);
+        // $item->kelola_kategori_id = $request->kelola_kategori_id;
+        // $item->deskripsi = $request->deskripsi;
+        // $item->gambar = $request->gambar;
+        // $item->save();
+
 
         return redirect()->route('kelola-mading.index');
     }

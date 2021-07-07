@@ -42,8 +42,16 @@ class DatabaseSeeder extends Seeder
             'level' => 'user',
         ]);
 
-        DB::table('kelola_kategori')->insert([
-            'kategori' => 'Seminar'
+        DB::table('kelola_kategoris')->insert([
+            'kategori' => 'Seminar',
+        ]);
+
+        DB::table('kelola_madings')->insert([
+            'users_id' => 3,
+            'kelola_kategori_id' => 1,
+            'gambar' => 'gambar sample',
+            'deskripsi' => 'ini post sample',
+            'status' => 1,
         ]);
 
         

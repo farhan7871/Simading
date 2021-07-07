@@ -127,6 +127,7 @@ class KelolaMadingController extends Controller
         $item = KelolaMading::findOrFail($id);
 
         $item->update($data);
+        
 
         return redirect()->route('kelola-mading.index');
     }
