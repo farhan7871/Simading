@@ -66,7 +66,7 @@
                         {{-- <li class="nav-item"><a class="nav-link link text-info display-4" href="#"></span>Keluar</a></li> --}}
                     @else
                         <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_sender_view') }}"></span>Pengirim</a></li>
-                        <li class="nav-item"><a class="nav-link link text-info display-4" href="#"></span>Admin</a></li>
+                        <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_admin_view') }}"></span>Admin</a></li>
                     @endif
                 </ul>
 
