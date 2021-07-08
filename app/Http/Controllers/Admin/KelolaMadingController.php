@@ -32,7 +32,9 @@ class KelolaMadingController extends Controller
         $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
         }
 
-
+        if(session('success_message')){
+            Alert::success('Berhasil!', session('success_message'));
+        }
         return view('pages.admin.kelola-mading.index', [
             'items' => $items
         ]);
@@ -100,8 +102,6 @@ class KelolaMadingController extends Controller
         $kelola_kategori = KelolaKategori::all();
         $users = User::all();
 
-        Alert::success('Success Title', 'Success Message');
-
         return view('pages.admin.kelola-mading.edit', [
             'item' => $item,
             'kelola_kategori' => $kelola_kategori,
@@ -120,28 +120,26 @@ class KelolaMadingController extends Controller
     //  fungsi untuk menyimpan data terbaru
     public function update(KelolaMadingRequest $request, $id)
     {
-        
         $data = $request->all();
         $item = KelolaMading::findOrFail($id);
-
-        // Unlink old image when update
-        $image_path = public_path().'/storage/'.$item->gambar;
-        unlink($image_path);
-
-        // store new image
-        $data['gambar'] = $request->file('gambar')->store('mading');
-
-
-
-        $item->update($data);
-        // $item->kelola_kategori_id = $request->kelola_kategori_id;
-        // $item->deskripsi = $request->deskripsi;
-        // $item->gambar = $request->gambar;
-        // $item->save();
+     
+        // check form image value, if null skip update
+        if($request->hasFile('gambar')){
+            // replace old image when update
+            $image_path = public_path().'/storage/'.$item->gambar;
+            unlink($image_path);
+            
+            // store new image
+            $item->gambar = $request->file('gambar')->store('mading');
+        }
+        
+        $item->kelola_kategori_id = $request->kelola_kategori_id;
+        $item->deskripsi = $request->deskripsi;
+        $item->save();
 
 
         Alert::success('Success Title', 'Success Message');
-        return redirect()->route('kelola-mading.index');
+        return redirect()->route('kelola-mading.index')->withSuccessMessage('Berhasil mengubah');
     }
 
     /**
