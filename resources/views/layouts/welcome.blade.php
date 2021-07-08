@@ -51,6 +51,7 @@
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                     <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"><span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Beranda</a></li>
                     <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"></span>Berita</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('upload_mading_view')}}"></span>Unggah Mading</a></li>
                     <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"></span>Tentang Kami</a></li>
                     @if (Auth::check()) 
                         <li class="nav-item dropdown">
@@ -65,7 +66,6 @@
                         </li>
                         {{-- <li class="nav-item"><a class="nav-link link text-info display-4" href="#"></span>Keluar</a></li> --}}
                     @else
-                        <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_sender_view') }}"></span>Pengirim</a></li>
                         <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_admin_view') }}"></span>Admin</a></li>
                     @endif
                 </ul>

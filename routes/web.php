@@ -69,13 +69,16 @@ Route::prefix('admin')
 
     Route::prefix('user')
     ->namespace('User')
-    ->middleware(['auth', 'sender'])
+    ->middleware(['sender'])
     ->group(function () {
 
         // // Menuju halaman utama user
         Route::get('/', 'DashboardController@index')
             ->name('dashboard_user');
 
+        Route::get('/mading/store', function() {
+            return view('pages.sender.form');
+        })->name('upload_mading_view');
         // // Menuju halaman kelola kategori
         // Route::resource('kelola-kategori', 'KelolaKategoriController');
 

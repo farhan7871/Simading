@@ -62,6 +62,7 @@
         }
         .card {
             margin-top: 15%;
+            border: none;
             /* box-shadow: 8px 8px 5px rgb(161, 161, 161); */
         }
 

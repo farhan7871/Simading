@@ -62,6 +62,7 @@
         }
         .card {
             margin-top: 15%;
+            border: none;
             /* box-shadow: 8px 8px 5px rgb(161, 161, 161); */
         }
 
@@ -105,10 +106,10 @@
                                 <button class="btn btn-custom" type="submit">Masuk</button>
                             </div>
                         </form>
-                        <p>Atau</p>
+                        {{-- <p>Atau</p>
                         <div class="d-grid gap-2">
                             <a type="button" class="btn btn-custom" href="{{ route('register_sender_view') }}">Daftar</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

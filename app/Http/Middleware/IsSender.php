@@ -19,6 +19,6 @@ class IsSender
         if (Auth::user() && Auth::user()->level == 'sender') {
             return $next($request);
         }
-        return redirect('/');
+        return redirect()->route('login_sender_view');
     }
 }
