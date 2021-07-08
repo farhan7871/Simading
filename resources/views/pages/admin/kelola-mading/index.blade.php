@@ -139,33 +139,35 @@
                         <div class="modal-body">
                             <form>
                                 <!-- Mading Photo -->
-                                <img id="myImage" class="img-responsive" src="" alt="">
+                                <img id="myImage" class="img-responsive" 
+                                    src="{{asset('/storage/'.$item->gambar)}}" alt="" 
+                                    style="width: 100%" class="img-thumbnail">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">ID</label>
-                                    <input type="text" class="form-control" id="mading_id">
+                                    <input disabled type="text" class="form-control" id="mading_id">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Kategori</label>
-                                    <input type="text" class="form-control" id="mading_kategori">
+                                    <input disabled type="text" class="form-control" id="mading_kategori">
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="mading_deskripsi"></textarea>
+                                    <textarea disabled class="form-control" id="mading_deskripsi"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Diterbitkan</label>
-                                    <input type="text" class="form-control" id="mading_diterbitkan">
+                                    <input disabled type="text" class="form-control" id="mading_diterbitkan">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Pengirim</label>
-                                    <input type="text" class="form-control" id="mading_pengirim">
+                                    <input disabled type="text" class="form-control" id="mading_pengirim">
                                 </div>
                         
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tolak</button>
+                            <button type="button" class="btn btn-warning">Verifikasi</button>
                         </div>
                         </div>
                     </div>

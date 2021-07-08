@@ -9,6 +9,7 @@ use App\KelolaKategori;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KelolaMadingController extends Controller
 {
@@ -99,6 +100,8 @@ class KelolaMadingController extends Controller
         $kelola_kategori = KelolaKategori::all();
         $users = User::all();
 
+        Alert::success('Success Title', 'Success Message');
+
         return view('pages.admin.kelola-mading.edit', [
             'item' => $item,
             'kelola_kategori' => $kelola_kategori,
@@ -137,6 +140,7 @@ class KelolaMadingController extends Controller
         // $item->save();
 
 
+        Alert::success('Success Title', 'Success Message');
         return redirect()->route('kelola-mading.index');
     }
 
