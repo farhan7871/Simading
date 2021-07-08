@@ -8,6 +8,8 @@
 
     @include('includes.admin.style')
     
+
+    
 </head>
 <body id="page-top">
 
@@ -67,6 +69,7 @@
   </div>
 
   @include('includes.admin.script')
+  @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     
 </body>
 </html>
