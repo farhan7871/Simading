@@ -64,9 +64,8 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        {{-- <li class="nav-item"><a class="nav-link link text-info display-4" href="#"></span>Keluar</a></li> --}}
                     @else
-                        <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_admin_view') }}"></span>Admin</a></li>
+                        <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_view') }}"></span>Masuk</a></li>
                     @endif
                 </ul>
 

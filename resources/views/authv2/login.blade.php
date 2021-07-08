@@ -84,15 +84,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                @if (Session::has('error'))
-                    <div class="alert alert-danger">
-                        {{ Session::get('error') }}
-                    </div>
-                @endif
                 <div class="card shadow">
                     <div class="card-body">
-                        <h2>Masuk Sebagai Pengirim</h2>
-                        <form action="{{ route('login_sender') }}" method="POST">
+                        <h2>Masuk</h2>
+                        <form action="{{ route('login_request') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Alamat Email</label>
@@ -116,6 +111,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </body>
 </html>

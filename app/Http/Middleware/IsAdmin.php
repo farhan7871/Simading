@@ -19,6 +19,6 @@ class IsAdmin
         if (Auth::user() && Auth::user()->level == 'admin') {
             return $next($request);
         }
-        return redirect('/');
+        return redirect()->route('login_view');
     }
 }

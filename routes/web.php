@@ -29,26 +29,17 @@ Route::get('/DetailMading', 'DetailMadingController@index')
     ->name('detail-mading');
 
 // login as sender page
-Route::get('/login/sender', function () {
-    return view('authv2.sender.login');
-})->name('login_sender_view');
-
-Route::get('/login/admin', function () {
-    return view('authv2.admin.login');
-})->name('login_admin_view');
-
-// Route::get('/register/sender', function () {
-//     return view('authv2.sender.register');
-// })->name('register_sender_view');
+Route::get('auth/login', function () {
+    return view('authv2.login');
+})->name('login_view');
 
 // auth handler
 Route::prefix('auth')
     ->namespace('Auth')
     ->group(function() {
 
-        Route::post('/login_sender','AuthController@loginSender')->name('login_sender');
-        Route::post('/login_admin','AuthController@loginAdmin')->name('login_admin');
-        Route::get('/logout', 'AuthController@logout')->name('logout');
+        Route::post('/login/request','AuthController@login')->name('login_request');
+        Route::get('/logout', 'AuthController@logout')->name('logout')->middleware('auth');
 
 });
 
@@ -73,8 +64,8 @@ Route::prefix('admin')
     ->group(function () {
 
         // // Menuju halaman utama user
-        Route::get('/', 'DashboardController@index')
-            ->name('dashboard_user');
+        // Route::get('/', 'DashboardController@index')
+        //     ->name('dashboard_user');
 
         Route::get('/mading/store', function() {
             return view('pages.sender.form');

@@ -7,28 +7,27 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use App\User;
 
 class AuthController extends Controller {
 
-    public function loginSender(Request $request) {
+    public function login(Request $request) {
         try{
 
             $user = User::where('email', $request->email)->first();
 
         }catch(\Exception $e) {
-
-            Session::flash('error', 'Terdapat Kesalahan');
-            return redirect()->route('login_sender_view');
+            Alert::toast('Terjadi Kesalahan', 'error', 'top')->position('top');
+            return redirect()->route('login_view');
 
         }
 
         // if user hasn't created yet in the database
         if (empty($user)) {
-
-            Session::flash('error', 'Pengguna Tidak Ditemukan');
-            return redirect()->route('login_sender_view');
+            Alert::toast('Akun tidak terdaftar', 'error', 'top')->position('top');
+            return redirect()->route('login_view');
 
         }
 
@@ -39,57 +38,19 @@ class AuthController extends Controller {
             // returned authenticated user
             if(Auth::user()->level == 'sender') {
                 return redirect()->route('home');
-            } else {
-                Session::flash('error', 'Masuk pada halaman yang salah');
-                return redirect()->route('login_sender_view');    
-            }
-
-        } else {
-
-            // wrong input password
-            Session::flash('error', 'Kata Sandi Salah');
-            return redirect()->route('login_sender_view');
-
-        }
-    }
-
-    public function loginAdmin(Request $request) {
-        try{
-
-            $user = User::where('email', $request->email)->first();
-
-        }catch(\Exception $e) {
-
-            Session::flash('error', 'Terdapat Kesalahan');
-            return redirect()->route('login_admin_view');
-
-        }
-
-        // if user hasn't created yet in the database
-        if (empty($user)) {
-
-            Session::flash('error', 'Pengguna Tidak Ditemukan');
-            return redirect()->route('login_admin_view');
-
-        }
-
-        // checking password user in database
-        if (Hash::check($request->password, $user->password)) {
-
-            Auth::login($user);
-            // returned authenticated user
-            if(Auth::user()->level == 'admin') {
+            } else if(Auth::user()->level == 'admin') {
                 return redirect()->route('dashboard');
             } else {
-                Session::flash('error', 'Masuk pada halaman yang salah');
-                return redirect()->route('login_admin_view');    
+                //wrong role
+                Alert::toast('Akun akses terbatas', 'error', 'top')->position('top');
+                return redirect()->route('login_view');    
             }
 
         } else {
 
             // wrong input password
-            Session::flash('error', 'Kata Sandi Salah');
-            return redirect()->route('login_admin_view');
+            Alert::toast('Kata sandi salah', 'error')->position('top');
+            return redirect()->route('login_view');
 
         }
     }
