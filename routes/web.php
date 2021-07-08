@@ -73,8 +73,8 @@ Route::prefix('admin')
     ->group(function () {
 
         // // Menuju halaman utama user
-        Route::get('/', 'DashboardController@index')
-            ->name('dashboard_user');
+        // Route::get('/', 'DashboardController@index')
+        //     ->name('dashboard_user');
 
         // // Menuju halaman kelola kategori
         // Route::resource('kelola-kategori', 'KelolaKategoriController');

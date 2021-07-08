@@ -32,9 +32,11 @@ class KelolaMadingController extends Controller
         $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
         }
 
+        // sweet alert success
         if(session('success_message')){
             Alert::success('Berhasil!', session('success_message'));
         }
+
         return view('pages.admin.kelola-mading.index', [
             'items' => $items
         ]);
@@ -126,8 +128,10 @@ class KelolaMadingController extends Controller
         // check form image value, if null skip update
         if($request->hasFile('gambar')){
             // replace old image when update
-            $image_path = public_path().'/storage/'.$item->gambar;
-            unlink($image_path);
+            if($item->gambar != null){
+                $image_path = public_path().'/storage/'.$item->gambar;
+                unlink($image_path);
+            }
             
             // store new image
             $item->gambar = $request->file('gambar')->store('mading');
@@ -137,8 +141,6 @@ class KelolaMadingController extends Controller
         $item->deskripsi = $request->deskripsi;
         $item->save();
 
-
-        Alert::success('Success Title', 'Success Message');
         return redirect()->route('kelola-mading.index')->withSuccessMessage('Berhasil mengubah');
     }
 
@@ -155,6 +157,6 @@ class KelolaMadingController extends Controller
         $item = KelolaMading::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('kelola-mading.index');
+        return response()->json(['success'=> true]);
     }
 }
