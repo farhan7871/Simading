@@ -13,8 +13,8 @@ class CreateKelolaKategoriTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelola_kategori', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('kelola_kategoris', function (Blueprint $table) {
+            $table->id();
             $table->string('kategori');
             $table->softDeletes();
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateKelolaKategoriTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelola_kategori');
+        Schema::dropIfExists('kelola_kategoris');
     }
 }

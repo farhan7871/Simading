@@ -15,9 +15,10 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')){
-            $items = KelolaMading::where('kelola_kategori_kategori', 'LIKE', '%'.$request->cari.'%')->get();
+            $items = KelolaMading::where('kelola_kategori_kategori', 'LIKE', '%'.$request->cari.'%')
+                                    ->where('status', 2)->get();
         }else{
-        $items = KelolaMading::with(['kelola_kategori'])->get();
+        $items = KelolaMading::where('status', 2)->with(['kelola_kategori'])->get();
         }
 
         return view('welcome', [

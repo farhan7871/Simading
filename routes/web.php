@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/masuk', function () {
-//     return view('pages.admin.masuk');
-// });
+Route::get('/masuk', function () {
+    return view('pages.admin.masuk');
+});
 
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Menuju halamana utama website
 Route::get('/', 'HomeController@index')
@@ -29,12 +28,25 @@ Route::get('/', 'HomeController@index')
 Route::get('/DetailMading', 'DetailMadingController@index')
     ->name('detail-mading');
 
+// login as sender page
+Route::get('auth/login', function () {
+    return view('authv2.login');
+})->name('login_view');
+
+// auth handler
+Route::prefix('auth')
+    ->namespace('Auth')
+    ->group(function() {
+
+        Route::post('/login/request','AuthController@login')->name('login_request');
+        Route::get('/logout', 'AuthController@logout')->name('logout')->middleware('auth');
+
+});
 
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware(['auth', 'admin'])
     ->group(function () {
-
         // Menuju halaman utama admin
         Route::get('/', 'DashboardController@index')
             ->name('dashboard');
@@ -48,13 +60,16 @@ Route::prefix('admin')
 
     Route::prefix('user')
     ->namespace('User')
-    ->middleware(['auth', 'user'])
+    ->middleware(['sender'])
     ->group(function () {
 
         // // Menuju halaman utama user
         // Route::get('/', 'DashboardController@index')
-        //     ->name('dashboard');
+        //     ->name('dashboard_user');
 
+        Route::get('/mading/store', function() {
+            return view('pages.sender.form');
+        })->name('upload_mading_view');
         // // Menuju halaman kelola kategori
         // Route::resource('kelola-kategori', 'KelolaKategoriController');
 

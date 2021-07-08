@@ -14,11 +14,14 @@ class CreateKelolaMadingTable extends Migration
     public function up()
     {
         Schema::create('kelola_madings', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
+            $table->foreignId('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreignId('kelola_kategori_id');
+            $table->foreign('kelola_kategori_id')->references('id')->on('kelola_kategoris');
             $table->text('gambar');
             $table->string('deskripsi');
-            $table->integer('users_id');
-            $table->integer('kelola_kategori_id');
+            $table->enum('status', [1,2,3]); // 1=pending, 2=verif, 3=tolak
             $table->softDeletes();
             $table->timestamps();
         });

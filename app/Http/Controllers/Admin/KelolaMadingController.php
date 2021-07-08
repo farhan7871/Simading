@@ -9,6 +9,7 @@ use App\KelolaKategori;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KelolaMadingController extends Controller
 {
@@ -31,6 +32,10 @@ class KelolaMadingController extends Controller
         $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
         }
 
+        // sweet alert success
+        if(session('success_message')){
+            Alert::success('Berhasil!', session('success_message'));
+        }
 
         return view('pages.admin.kelola-mading.index', [
             'items' => $items
@@ -66,11 +71,7 @@ class KelolaMadingController extends Controller
     {
         
         $data = $request->all();
-        $data['gambar'] = $request->file('gambar')->store(
-            'assets/gallery',
-            'public'
-
-        );
+        $data['gambar'] = $request->file('gambar')->store('mading');
 
         KelolaMading::create($data);
         return redirect()->route('kelola-mading.index');
@@ -99,6 +100,7 @@ class KelolaMadingController extends Controller
     public function edit($id)
     {
         $item = KelolaMading::findOrFail($id);
+        // dd($item->gambar);
         $kelola_kategori = KelolaKategori::all();
         $users = User::all();
 
@@ -120,20 +122,26 @@ class KelolaMadingController extends Controller
     //  fungsi untuk menyimpan data terbaru
     public function update(KelolaMadingRequest $request, $id)
     {
-        
         $data = $request->all();
-
-        $data['gambar'] = $request->file('gambar')->store(
-            'assets/gallery',
-            'public'
-
-        );
-
         $item = KelolaMading::findOrFail($id);
+     
+        // check form image value, if null skip update
+        if($request->hasFile('gambar')){
+            // replace old image when update
+            if($item->gambar != null){
+                $image_path = public_path().'/storage/'.$item->gambar;
+                unlink($image_path);
+            }
+            
+            // store new image
+            $item->gambar = $request->file('gambar')->store('mading');
+        }
+        
+        $item->kelola_kategori_id = $request->kelola_kategori_id;
+        $item->deskripsi = $request->deskripsi;
+        $item->save();
 
-        $item->update($data);
-
-        return redirect()->route('kelola-mading.index');
+        return redirect()->route('kelola-mading.index')->withSuccessMessage('Berhasil mengubah');
     }
 
     /**
@@ -149,6 +157,6 @@ class KelolaMadingController extends Controller
         $item = KelolaMading::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('kelola-mading.index');
+        return response()->json(['success'=> true]);
     }
 }
