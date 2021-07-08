@@ -6,7 +6,7 @@
     @endsection
 
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -41,12 +41,12 @@
                                         <tr>
                                             <th style="width:5%"><center>ID</th>
                                             <th style="width:20%"><center>Gambar Mading</th>
-                                            <th style="width:12%"><center>Kategori</th>
+                                            <th style="width:10%"><center>Kategori</th>
                                             <th style="width:20%"><center>Deskripsi</th>
                                             <th style="width:13%"><center>Diterbitkan</th>
                                             <th style="width:10%"><center>Pengirim</th>
                                             <th style="width:10%"><center>Status</th>
-                                            <th style="width:15%"><center>Aksi</th>
+                                            <th style="width:5%"><center>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -81,20 +81,20 @@
                                                 </td>
                                                 <td> 
                                                     <center>
-                                                        <!-- todo 2 : tampilkan detail data post -->
-                                                        <!-- todo 3 : buat tombol terima, ajukan revisi, delete -->
                                                         @if ($item -> status == 1)
                                                         <a id="detail" href="#" class="btn btn-success" data-toggle="modal" data-target="#modal-verif"
                                                             data-id="{{$item->id}}"
                                                             data-kategori="{{$item->kelola_kategori->kategori}}"
                                                             data-deskripsi="{{$item->deskripsi}}"
                                                             data-diterbitkan="{{$item->created_at}}"
-                                                            data-pengirim="{{$item->users->name}}">
+                                                            data-pengirim="{{$item->users->name}}"
+                                                            data-gambar="{{asset('/storage/'.$item->gambar)}}">
                                                             <i class="fa fa-clipboard-check"></i>
                                                         </a>
                                                         <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
                                                             <i class="fa fa-pencil-alt"></i>
                                                         </a>
+
                                                         @elseif($item -> status == 2)
                                                         <a style="pointer-events: none;" href="#" class="btn btn-success" data-toggle="modal" data-target="#modalVerif">
                                                             <i class="fa fa-clipboard-check"></i>
@@ -103,13 +103,15 @@
                                                             <i class="fa fa-pencil-alt"></i>
                                                         </a>
                                                         @endif
-                                                        <!-- <form action="{{route('kelola-mading.destroy', $item->id)}}" method="POST" class="d-inline">
+
+                                                        <!-- ACTION - DELETE MADING -->
+                                                        <form action="#" method="GET" class="d-inline">
                                                             @csrf   
                                                             @method('delete')
-                                                            <button class="btn btn-danger">
+                                                            <button class="btn btn-danger" onclick="deleteConfirmation({{$item->id}})">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
-                                                        </form>  -->
+                                                        </form> 
                                                     </center>
                                                 </td>
                                             </tr>
@@ -139,8 +141,8 @@
                         <div class="modal-body">
                             <form>
                                 <!-- Mading Photo -->
-                                <img id="myImage" class="img-responsive" 
-                                    src="{{asset('/storage/'.$item->gambar)}}" alt="" 
+                                <img id="mading_gambar" class="img-responsive" 
+                                    src="" alt="" 
                                     style="width: 100%" class="img-thumbnail">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">ID</label>
@@ -173,8 +175,10 @@
                     </div>
                 </div>
 
+
                 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
                 <script>
+                // Pass data from HTML Table to Modal
                 $(document).ready(function(){
                     $(document).on('click','#detail', function(){
 
@@ -184,6 +188,7 @@
                         var deskripsi_mading_temp = $(this).data('deskripsi')
                         var diterbitkan_mading_temp = $(this).data('diterbitkan')
                         var pengirim_mading_temp = $(this).data('pengirim')
+                        var gambar_mading_temp = $(this).data('gambar')
 
                         // ubah dalam modal
                         $('#mading_id').val(id_mading_temp)
@@ -191,11 +196,58 @@
                         $('#mading_deskripsi').val(deskripsi_mading_temp)
                         $('#mading_diterbitkan').val(diterbitkan_mading_temp)
                         $('#mading_pengirim').val(pengirim_mading_temp)
+                        $('#mading_gambar').attr('src', gambar_mading_temp)
                     })
                 })
+                </script>
+
+                <!-- DELETE CONFIRMATION DIALOG -->
+                <script type="text/javascript">
+                    function deleteConfirmation(id) {
+                        swal({
+                            title: "Hapus data?",
+                            text: "Mohon periksa kembali data!",
+                            type: "warning",
+                            showCancelButton: !0,
+                            confirmButtonText: "Ya, Hapus!",
+                            cancelButtonText: "Tidak, Batal!",
+                            reverseButtons: !0
+                        }).then(function (e) {
+                            // console.log("alert")
+
+                            if (e.value === true) {
+                                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+                                $.ajax({
+                                    type: 'DELETE',
+                                    url: "/admin/kelola-mading/" + id,
+                                    data: {_token: CSRF_TOKEN},
+                                    dataType: 'JSON',
+                                    success: function (results) {
+                                        console.log(results);
+                                        if (results.success === true) {
+                                            swal("Berhasil menghapus!", results.message, "success");
+                                            location.reload();
+                                        } else {
+                                            swal("Error!", results.message, "error");
+                                            location.reload();
+                                        }
+                                    }
+                                });
+
+                            } else {
+                                e.dismiss;
+                            }
+
+                        }, function (dismiss) {
+                            return false;
+                        })
+                    }
                 </script>
                 <!-- /.container-fluid -->
 
             <!-- End of Main Content -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
             
 @endsection
