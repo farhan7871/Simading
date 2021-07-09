@@ -37,7 +37,7 @@ class AuthController extends Controller {
             Auth::login($user);
             // returned authenticated user
             if(Auth::user()->level == 'sender') {
-                return redirect()->route('home');
+                return redirect()->route('upload_mading_view');
             } else if(Auth::user()->level == 'admin') {
                 return redirect()->route('dashboard');
             } else {
@@ -58,6 +58,7 @@ class AuthController extends Controller {
     public function logout() {
         Auth::logout();
         Session::flush();
+        Alert::alert('Berhasil Log Out', '', 'info');
         return redirect()->route('home');
     }
 }

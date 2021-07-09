@@ -24,8 +24,7 @@ Route::get('/masuk', function () {
 // Menuju halamana utama website
 Route::get('/', 'HomeController@index')
     ->name('home');
-
-Route::get('/DetailMading', 'DetailMadingController@index')
+Route::get('/mading/{id}', 'DetailMadingController@index')
     ->name('detail-mading');
 
 // login as sender page
@@ -39,7 +38,7 @@ Route::prefix('auth')
     ->group(function() {
 
         Route::post('/login/request','AuthController@login')->name('login_request');
-        Route::get('/logout', 'AuthController@logout')->name('logout')->middleware('auth');
+        Route::get('/logout', 'AuthController@logout')->name('logout_request')->middleware('auth');
 
 });
 
@@ -63,18 +62,9 @@ Route::prefix('admin')
     ->middleware(['sender'])
     ->group(function () {
 
-        // // Menuju halaman utama user
-        // Route::get('/', 'DashboardController@index')
-        //     ->name('dashboard_user');
+        Route::get('/mading/create', 'KelolaMadingSenderController@create')->name('upload_mading_view');
+        Route::post('/mading/store', 'KelolaMadingSenderController@store')->name('upload_mading');
 
-        Route::get('/mading/store', function() {
-            return view('pages.sender.form');
-        })->name('upload_mading_view');
-        // // Menuju halaman kelola kategori
-        // Route::resource('kelola-kategori', 'KelolaKategoriController');
-
-        // // Menuju halaman kelola mading
-        // Route::resource('kelola-mading', 'KelolaMadingController');
     });
 
 Auth::routes(['verify' => true]);
