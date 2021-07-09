@@ -35,8 +35,11 @@
                     <select name="kelola_kategori_id" class="form-control">
                         <!-- <option value="{{$item->kelola_kategori_id}}"> {{$item -> kelola_kategori -> kategori}} </option> -->
                         @foreach ($kelola_kategori as $kelola_kategoris)
-                            <option value="{{$kelola_kategoris->id}}">{{$kelola_kategoris->kategori}}
-                            </option>
+                            @if($kelola_kategoris->id == $item->kelola_kategori_id)
+                                <option value="{{$kelola_kategoris->id}}" selected>{{$kelola_kategoris->kategori}}</option>
+                            @else
+                                <option value="{{$kelola_kategoris->id}}">{{$kelola_kategoris->kategori}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
