@@ -17,7 +17,7 @@ class KelolaMadingController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')){
-            $items = KelolaMading::where('kelola_kategori_kategori', 'LIKE', '%'.$request->cari.'%')->get();
+            $items = KelolaMading::where('deskripsi', 'LIKE', '%'.$request->cari.'%')->get();
         }else{
 
         $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();

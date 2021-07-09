@@ -2,56 +2,52 @@
 
 
 @section('title')
-        Admin | Kelola Mading
-    @endsection
+    Admin | Kelola Mading
+@endsection
 
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                      <!-- Page Heading -->
-    
-                    {{-- <!-- Page Heading --}}
+                    <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800 mt-4">Kelola Data Mading</h1>
-                    <p class="mb-4">Kelola Mading</p>
+                    <p class="mb-4">Verifikasi, edit, hapus mading</p>
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-
+                    <div class="card shadow mb-4">  
                         <div class="card-body">
                             <div class="table-responsive">
-                                
-                                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
-                                    method="GET" action="{{route('kelola-mading.index')}}">
-                                    <div class="input-group">
-                                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button">
-                                                    <i class="fas fa-search fa-sm"></i>
-                                                </button>     
-                                            </div>
-                                    </div>
-                                </form>
+                            
+                            <!-- search bar -->
+                            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
+                                method="GET" action="{{route('kelola-mading.index')}}">
+                                <div class="input-group">
+                                    <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>     
+                                        </div>
+                                </div>
+                            </form>
 
-                                    {{-- <i class="fas fa-plus-square"></i> --}}
-                                <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
+                                <table id="tableMading" class="table table-bordered mb-4"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th style="width:5%"><center>ID</th>
                                             <th style="width:20%"><center>Gambar Mading</th>
                                             <th style="width:10%"><center>Kategori</th>
-                                            <th style="width:20%"><center>Deskripsi</th>
+                                            <th style="width:15%"><center>Deskripsi</th>
                                             <th style="width:13%"><center>Diterbitkan</th>
                                             <th style="width:10%"><center>Pengirim</th>
                                             <th style="width:10%"><center>Status</th>
-                                            <th style="width:5%"><center>Aksi</th>
+                                            <th style="width:13%"><center>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @forelse ($items as $item)
-                                            <tr>
+                                            <tr id="tr_table">
                                                 <td><center> {{$item -> id}} </center></td>
 
                                                 <td><center>
@@ -61,16 +57,12 @@
 
                                                 <td>{{$item -> deskripsi}}</td>
 
-
-                                                <!-- MADING'S CREATED AT -->
                                                 <td>{{$item -> created_at}}</td>
 
-                                                <!-- MADING'S SENDER -->
                                                 <td>{{$item -> users -> name}} </td>
 
-                                                <!-- MADING'S STATUS -->
                                                 <td>
-                                                <!-- mading's status check -->
+                                                <!-- mading status check -->
                                                 @if ($item -> status == 1)
                                                     <!-- mading blm terverifikasi -->
                                                     <span class="badge badge-pill badge-warning">Belum verifikasi</span>
@@ -81,7 +73,6 @@
                                                 </td>
                                                 <td> 
                                                     <center>
-                                            
                                                         <a id="detail" href="#" class="btn btn-success" data-toggle="modal" data-target="#modal-verif"
                                                             data-id="{{$item->id}}"
                                                             data-status="{{$item->status}}"
@@ -95,14 +86,10 @@
                                                         <a href="{{route('kelola-mading.edit', $item-> id)}}" class="btn btn-info">
                                                             <i class="fa fa-pencil-alt"></i>
                                                         </a>
-
-                                                
-
                                                         <!-- ACTION - DELETE MADING -->
                                                         <button class="btn btn-danger" onclick="deleteConfirmation({{$item->id}})">
-                                                                <i class="fa fa-trash"></i>
+                                                            <i class="fa fa-trash"></i>
                                                         </button>
-                                            
                                                     </center>
                                                 </td>
                                             </tr>
@@ -293,53 +280,27 @@
                 </script>
                 <!-- END DELETE CONFIRMATION DIALOG -->
 
-                <!-- VERIFY CONFIRMATION DIALOG -->
-                <!-- <script type="text/javascript">
-                    function verifConfirmation(id) {
-                        console.log("masuk verif Func " + id);
-                        swal({
-                            title: "Verifikasi data?",
-                            text: "Mohon periksa kembali data",
-                            type: "warning",
-                            showCancelButton: !0,
-                            confirmButtonText: "Ya, Verifikasi!",
-                            cancelButtonText: "Tidak, Batal!",
-                            reverseButtons: !0
-                        }).then(function (e) {
-                            // console.log("alert")
-
-                            if (e.value === true) {
-                                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-                                $.ajax({
-                                    type: 'PUT',
-                                    url: "/admin/verifyMading" + id,
-                                    data: {_token: CSRF_TOKEN},
-                                    dataType: 'JSON',
-                                    success: function (results) {
-                                        console.log(results);
-                                        if (results.success === true) {
-                                            swal("Berhasil verif!", results.message, "success");
-                                            location.reload();
-                                        } else {
-                                            swal("Error!", results.message, "error");
-                                            location.reload();
-                                        }
-                                    }
-                                });
-
-                            } else {
-                                e.dismiss;
-                            }
-
-                        }, function (dismiss) {
-                            return false;
-                        })
+                <!-- FILTER SEARCH TABLE -->
+                <script>
+                    function searchMading() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("searchMading");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("tableMading");
+                    tr = table.getElementById("tr_table");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[0];
+                        if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                        }       
                     }
-                </script> -->
-                <!-- END VERIFY CONFIRMATION DIALOG -->
-
-
+                    }
+                </script>
                 <!-- /.container-fluid -->
 
             <!-- End of Main Content -->
