@@ -24,8 +24,7 @@ Route::get('/masuk', function () {
 // Menuju halamana utama website
 Route::get('/', 'HomeController@index')
     ->name('home');
-Route::get('/mading/{id}', 'DetailMadingController@index')
-    ->name('detail-mading');
+Route::get('/mading/{id}', 'DetailMadingController@index');
 
 // login as sender page
 Route::get('auth/login', function () {

@@ -15,11 +15,10 @@ class DetailMadingController extends Controller
     public function index($id)
     {
        
-        $items = KelolaMading::with(['kelola_kategori'])->get();
+        $mading = KelolaMading::find($id);
         
-
         return view('detailmading', [
-            'items' => $items
+            'mading' => $mading
         ]);
     }
 }

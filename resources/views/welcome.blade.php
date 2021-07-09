@@ -175,7 +175,7 @@
                 <div class="media row mt-4">
                 <div class="mbr-figure" style="width: 60%;"><center>
                     <h2>{{$item -> kelola_kategori_kategori}}</h2>
-                    <a href="{{route('detail-mading')}}"><img style="width: 300px; height: 250px;" class="img-thumbnail" src="{{Storage::url($item->gambar)}}"> <br></a>
+                    <a href="{{ url('/mading/'.$item->id) }}"><img style="width: 300px; height: 250px;" class="img-thumbnail" src="{{asset('/storage/'.$item->gambar)}}"> <br></a>
                     <h5 style="line-height:1.3; margin-bottom:20px"> {{$item -> deskripsi}}</h5>
                     <p> Terbit: {{$item -> created_at}}</p>
                     </center></div>
