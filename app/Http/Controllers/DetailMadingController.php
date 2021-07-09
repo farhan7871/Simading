@@ -12,7 +12,7 @@ class DetailMadingController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    public function index($id)
     {
        
         $items = KelolaMading::with(['kelola_kategori'])->get();

@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\KelolaMadingRequest;
+use App\Http\Requests\Admin\KelolaMadingRequest;
 use App\KelolaMading;
+use App\KelolaKategori;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
-class KelolaMadingController extends Controller
+
+class KelolaMadingSenderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,19 +22,9 @@ class KelolaMadingController extends Controller
      */
 
     //  fungsi memunculkan data dari halaman utama kelola mading 
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->has('cari')){
-            $items = KelolaMading::where('kelola_kategori_kategori', 'LIKE', '%'.$request->cari.'%')->get();
-        }else{
-
-        $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
-        }
-
-
-        return view('pages.admin.kelola-mading.index', [
-            'items' => $items
-        ]);
+        
     }
 
     /**
@@ -39,14 +33,13 @@ class KelolaMadingController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //  fungsi membuat data di kelola mading
+    //  fungsi membuat data di mading
     public function create()
     {
-        $kelola_kategori = KelolaKategori::all();
-        $users = User::all();
-        return view('pages.admin.kelola-mading.create', [
-            'kelola_kategori' => $kelola_kategori,
-            'users' => $users
+        $categories = KelolaKategori::all();
+
+        return view('pages.sender.form', [
+            'categories' => $categories
         ]);
     }
 
@@ -58,17 +51,27 @@ class KelolaMadingController extends Controller
      */
 
     //  fungsi yang mengarahkan data untuk melakukan penyimpanan foto 
-    public function store(KelolaMadingRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $data['gambar'] = $request->file('gambar')->store(
-            'assets/gallery',
-            'public'
+        try {
+            $mading = new KelolaMading;
+            $mading->users_id = Auth::user()->id;
+            $mading->kelola_kategori_id = $request->kategori_id;
+            $mading->deskripsi = $request->deskripsi;
+            $mading->status = 1;
 
-        );
+            if($request->hasFile('gambar')){
+                // store new image
+                $mading->gambar = $request->file('gambar')->store('mading');
+            }
 
-        KelolaMading::create($data);
-        return redirect()->route('kelola-mading.index');
+            $mading->save();
+        } catch (\Exception $e) {
+            Alert::alert('Terjadi Kesalahan', $e->getMessage(), 'error');
+        }
+
+        Alert::alert('Berhasil Unggah Mading', 'Tunggu untuk verifikasi mading', 'success');
+        return redirect()->route('home');
     }
 
     /**

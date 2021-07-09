@@ -54,7 +54,8 @@
                     <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('upload_mading_view')}}"></span>Unggah Mading</a></li>
                     <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"></span>Tentang Kami</a></li>
                     @if (Auth::check()) 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('logout_request')}}"></span>Keluar</a></li>
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link link text-info display-4 dropdown-toggle" href="#" id="userMenuDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ __(Auth::user()->name) }}
                             </a>
@@ -63,7 +64,7 @@
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     @else
                         <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_view') }}"></span>Masuk</a></li>
                     @endif
@@ -178,6 +179,7 @@
 <script src="{{url('frontend/assets/theme/js/script.js')}}"></script>
 <script src="{{url('frontend/assets/slidervideo/script.js')}}"></script>
     
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 </body>
 
