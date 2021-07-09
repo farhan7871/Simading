@@ -81,9 +81,10 @@
                                                 </td>
                                                 <td> 
                                                     <center>
-                                                        @if ($item -> status == 1)
+                                            
                                                         <a id="detail" href="#" class="btn btn-success" data-toggle="modal" data-target="#modal-verif"
                                                             data-id="{{$item->id}}"
+                                                            data-status="{{$item->status}}"
                                                             data-kategori="{{$item->kelola_kategori->kategori}}"
                                                             data-deskripsi="{{$item->deskripsi}}"
                                                             data-diterbitkan="{{$item->created_at}}"
@@ -95,23 +96,13 @@
                                                             <i class="fa fa-pencil-alt"></i>
                                                         </a>
 
-                                                        @elseif($item -> status == 2)
-                                                        <a style="pointer-events: none;" href="#" class="btn btn-success" data-toggle="modal" data-target="#modalVerif">
-                                                            <i class="fa fa-clipboard-check"></i>
-                                                        </a>
-                                                        <a style="pointer-events: none;" href="#" class="btn btn-info">
-                                                            <i class="fa fa-pencil-alt"></i>
-                                                        </a>
-                                                        @endif
+                                                
 
                                                         <!-- ACTION - DELETE MADING -->
-                                                        <form action="#" method="GET" class="d-inline">
-                                                            @csrf   
-                                                            @method('delete')
-                                                            <button class="btn btn-danger" onclick="deleteConfirmation({{$item->id}})">
+                                                        <button class="btn btn-danger" onclick="deleteConfirmation({{$item->id}})">
                                                                 <i class="fa fa-trash"></i>
-                                                            </button>
-                                                        </form> 
+                                                        </button>
+                                            
                                                     </center>
                                                 </td>
                                             </tr>
@@ -168,35 +159,91 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tolak</button>
-                            <button type="button" class="btn btn-warning">Verifikasi</button>
+                            <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Tolak</button> -->
+                            <button id="btn-verif-modal" type="button" class="btn btn-warning">Verifikasi</button>
                         </div>
                         </div>
                     </div>
                 </div>
 
-
                 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
                 <script>
+
+                // global variable for id mading
+                var id_mading_global;
+
                 // Pass data from HTML Table to Modal
                 $(document).ready(function(){
                     $(document).on('click','#detail', function(){
 
                         // store data temp kedalam var temp
                         var id_mading_temp = $(this).data('id')
+                        id_mading_global = id_mading_temp
+                        var status_mading_temp = $(this).data('status')
                         var kategori_mading_temp = $(this).data('kategori')
                         var deskripsi_mading_temp = $(this).data('deskripsi')
                         var diterbitkan_mading_temp = $(this).data('diterbitkan')
                         var pengirim_mading_temp = $(this).data('pengirim')
                         var gambar_mading_temp = $(this).data('gambar')
 
-                        // ubah dalam modal
+                        // fill data to modal
                         $('#mading_id').val(id_mading_temp)
                         $('#mading_kategori').val(kategori_mading_temp)
                         $('#mading_deskripsi').val(deskripsi_mading_temp)
                         $('#mading_diterbitkan').val(diterbitkan_mading_temp)
                         $('#mading_pengirim').val(pengirim_mading_temp)
                         $('#mading_gambar').attr('src', gambar_mading_temp)
+
+                        // cek apakah mading sudah verif
+                        if(status_mading_temp==2){
+                            const btn_verif = document.getElementById("btn-verif-modal");
+                            btn_verif.disabled = true;
+                            btn_verif.innerText = "Sudah verifikasi";
+                        
+                        }
+                    })
+                    
+                    // VERIFY MADING
+                    $(document).on('click','#btn-verif-modal',function(){
+                        console.log("masuk verif Func " + id_mading_global);
+                        swal({
+                            title: "Verifikasi data?",
+                            text: "Mohon periksa kembali data",
+                            type: "warning",
+                            showCancelButton: !0,
+                            confirmButtonText: "Ya, Verifikasi!",
+                            cancelButtonText: "Tidak, Batal!",
+                            reverseButtons: !0
+                        }).then(function (e) {
+                            // console.log("alert")
+
+                            if (e.value === true) {
+                                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                                // console.log("call url")
+                                $.ajax({
+                                    type: 'PUT',
+                                    url: "/admin/verifyMading/" + id_mading_global,
+                                    data: {_token: CSRF_TOKEN},
+                                    dataType: 'JSON',
+                                    success: function (results) {
+                                        console.log(results);
+                                        if (results.success === true) {
+                                            swal("Berhasil verif!", results.message, "success");
+                                            location.reload();
+                                        } else {
+                                            swal("Error!", results.message, "error");
+                                            location.reload();
+                                        }
+                                    }
+                                });
+
+                            } else {
+                                e.dismiss;
+                            }
+
+                        }, function (dismiss) {
+                            return false;
+                        })
                     })
                 })
                 </script>
@@ -244,6 +291,55 @@
                         })
                     }
                 </script>
+                <!-- END DELETE CONFIRMATION DIALOG -->
+
+                <!-- VERIFY CONFIRMATION DIALOG -->
+                <!-- <script type="text/javascript">
+                    function verifConfirmation(id) {
+                        console.log("masuk verif Func " + id);
+                        swal({
+                            title: "Verifikasi data?",
+                            text: "Mohon periksa kembali data",
+                            type: "warning",
+                            showCancelButton: !0,
+                            confirmButtonText: "Ya, Verifikasi!",
+                            cancelButtonText: "Tidak, Batal!",
+                            reverseButtons: !0
+                        }).then(function (e) {
+                            // console.log("alert")
+
+                            if (e.value === true) {
+                                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+                                $.ajax({
+                                    type: 'PUT',
+                                    url: "/admin/verifyMading" + id,
+                                    data: {_token: CSRF_TOKEN},
+                                    dataType: 'JSON',
+                                    success: function (results) {
+                                        console.log(results);
+                                        if (results.success === true) {
+                                            swal("Berhasil verif!", results.message, "success");
+                                            location.reload();
+                                        } else {
+                                            swal("Error!", results.message, "error");
+                                            location.reload();
+                                        }
+                                    }
+                                });
+
+                            } else {
+                                e.dismiss;
+                            }
+
+                        }, function (dismiss) {
+                            return false;
+                        })
+                    }
+                </script> -->
+                <!-- END VERIFY CONFIRMATION DIALOG -->
+
+
                 <!-- /.container-fluid -->
 
             <!-- End of Main Content -->

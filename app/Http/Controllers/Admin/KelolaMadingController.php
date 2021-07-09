@@ -13,18 +13,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class KelolaMadingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     //  fungsi memunculkan data dari halaman utama kelola mading 
     public function index(Request $request)
     {
-        
-
-        
         if ($request->has('cari')){
             $items = KelolaMading::where('kelola_kategori_kategori', 'LIKE', '%'.$request->cari.'%')->get();
         }else{
@@ -42,12 +33,6 @@ class KelolaMadingController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     //  fungsi membuat data di kelola mading
     public function create()
     {
@@ -58,14 +43,6 @@ class KelolaMadingController extends Controller
             'users' => $users
         ]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
     //  fungsi yang mengarahkan data untuk melakukan penyimpanan foto 
     public function store(KelolaMadingRequest $request)
     {
@@ -77,24 +54,11 @@ class KelolaMadingController extends Controller
         return redirect()->route('kelola-mading.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // tampilkan detail mading
     public function show($id)
     {
-        //
+        // todo code detail mading disini
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
 
     //  fungsi yang mengarahkan ke halaman edit
     public function edit($id)
@@ -111,13 +75,16 @@ class KelolaMadingController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // mengubah status verifikasi mading
+    public function verifyMading($id){
+        $item = KelolaMading::findOrFail($id);
+        // dd('haha');
+
+        $item->status = 2; // verified
+        $item->save();
+        
+        return response()->json(['success'=> true]);
+    }
 
     //  fungsi untuk menyimpan data terbaru
     public function update(KelolaMadingRequest $request, $id)
@@ -143,13 +110,6 @@ class KelolaMadingController extends Controller
 
         return redirect()->route('kelola-mading.index')->withSuccessMessage('Berhasil mengubah');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     // Fungsi untuk menghapus data
     public function destroy($id)
