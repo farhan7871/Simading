@@ -31,6 +31,9 @@ Route::get('/mading/{id}', 'DetailMadingController@index');
 Route::get('auth/login', function () {
     return view('authv2.login');
 })->name('login_view');
+Route::get('auth/register', function () {
+    return view('authv2.register');
+})->name('register_view');
 
 // auth handler
 Route::prefix('auth')
@@ -38,6 +41,7 @@ Route::prefix('auth')
     ->group(function() {
 
         Route::post('/login/request','AuthController@login')->name('login_request');
+        Route::post('/register/request','AuthController@register')->name('register_request');
         Route::get('/logout', 'AuthController@logout')->name('logout_request')->middleware('auth');
 
 });

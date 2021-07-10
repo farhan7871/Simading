@@ -169,22 +169,43 @@
 
 <section class="mbr-section " id="content7-e">
     <div class="container">
-            <div class="row">
-            @foreach ($items as $item)
-              <div class="col"> 
-                <div class="media row mt-4">
-                <div class="mbr-figure" style="width: 60%;"><center>
-                    <h2>{{$item -> kelola_kategori_kategori}}</h2>
-                    <a href="{{ url('/mading/'.$item->id) }}"><img style="width: 300px; height: 250px;" class="img-thumbnail" src="{{asset('/storage/'.$item->gambar)}}"> <br></a>
-                    <h5 style="line-height:1.3; margin-bottom:20px"> {{$item -> deskripsi}}</h5>
-                    <p> Terbit: {{$item -> created_at}}</p>
-                    </center></div>
-            </div>
-            </div>
-            @endforeach 
+        <div class="row row-cols-3 row-cols-md-2 g-4">
+            @forelse ($items as $item)
+                <div class="col">
+                    <div class="card shadow text-center" style="width: 250px; height: 150px">
+                        <div class="card-header">
+                            <h3>{{$item ->kelola_kategori->kategori}}</h2>
+                        </div>
+                        <a href="{{ url('/mading/'.$item->id) }}">
+                            <img class="card-img-top" src="{{asset('/storage/'.$item->gambar)}}" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title"> {{$item -> deskripsi}}</h5>
+
+                        </div>
+                    </div>
+                </div>
+            @empty
+            
+            @endforelse
         </div>
+    </div>
 </section>
 
+{{-- @foreach ($items as $item)
+<div class="col"> 
+    <div class="media row mt-4">
+    <div class="mbr-figure" style="width: 60%;">
+        <center>
+            <h2>{{$item -> kelola_kategori_kategori}}</h2>
+                <a href="{{ url('/mading/'.$item->id) }}"><img style="width: 300px; height: 250px;" class="img-thumbnail" src="{{asset('/storage/'.$item->gambar)}}"> <br></a>
+                <h5 style="line-height:1.3; margin-bottom:20px"> {{$item -> deskripsi}}</h5>
+                <p> Terbit: {{$item -> created_at}}</p>
+        </center>
+    </div>
+    </div>
+</div>
+@endforeach  --}}
 <section class="cid-s29Hrb0Wk7" id="social-buttons3-i">
     <div class="container">
         <div class="media-container-row">
