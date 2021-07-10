@@ -23,7 +23,7 @@
                             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
                                 method="GET" action="{{route('kelola-mading.index')}}">
                                 <div class="input-group">
-                                    <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Cari deskripsi mading..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -147,7 +147,9 @@
                         </div>
                         <div class="modal-footer">
                             <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Tolak</button> -->
-                            <button id="btn-verif-modal" type="button" class="btn btn-warning">Verifikasi</button>
+                            <button id="btn-verif-modal" type="button" class="btn btn-warning">
+                                Verifikasi
+                            </button>
                         </div>
                         </div>
                     </div>
@@ -180,11 +182,13 @@
                         $('#mading_diterbitkan').val(diterbitkan_mading_temp)
                         $('#mading_pengirim').val(pengirim_mading_temp)
                         $('#mading_gambar').attr('src', gambar_mading_temp)
-
+                        
                         // cek apakah mading sudah verif
                         if(status_mading_temp==2){
                             const btn_verif = document.getElementById("btn-verif-modal");
                             btn_verif.disabled = true;
+                            btn_verif.classList.remove('btn-warning')
+                            btn_verif.classList.add('btn-success')
                             btn_verif.innerText = "Sudah verifikasi";
                         
                         }
@@ -280,27 +284,6 @@
                 </script>
                 <!-- END DELETE CONFIRMATION DIALOG -->
 
-                <!-- FILTER SEARCH TABLE -->
-                <script>
-                    function searchMading() {
-                    var input, filter, table, tr, td, i, txtValue;
-                    input = document.getElementById("searchMading");
-                    filter = input.value.toUpperCase();
-                    table = document.getElementById("tableMading");
-                    tr = table.getElementById("tr_table");
-                    for (i = 0; i < tr.length; i++) {
-                        td = tr[i].getElementsByTagName("td")[0];
-                        if (td) {
-                        txtValue = td.textContent || td.innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                        }       
-                    }
-                    }
-                </script>
                 <!-- /.container-fluid -->
 
             <!-- End of Main Content -->

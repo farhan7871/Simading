@@ -2,7 +2,7 @@
 
 
 @section('title')
-        Admin | Kelola Kategori
+        Admin | Kelola User
     @endsection
 
 @section('content')
@@ -11,23 +11,19 @@
 
     <!-- Page Heading -->
 
-    <h1 class="h3 mb-2 text-gray-800 mt-4">Kelola Data Kategori</h1>
-    <p class="mb-4">Tambah, edit, hapus kategori</p>
+    <h1 class="h3 mb-2 text-gray-800 mt-4">Kelola Data User</h1>
+    <p class="mb-4">Lihat & hapus pengguna</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
 
         <div class="card-body">
             <div class="table-responsive">
-                <a href="{{route('kelola-kategori.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-3"><i
-                    class="fas fa-plus-square mr-2"></i>Tambah Kategori</a>
-                    {{-- <i class="fas fa-plus-square"></i> --}}
 
-                
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right "
                     method="GET" action="{{route('kelola-kategori.index')}}">
                     <div class="input-group">
-                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Cari kategori ..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -39,9 +35,10 @@
                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="width:20%"><center>ID Kategori</th>
-                            <th style="width:65%"><center>Nama Kategori</th>
-                            <th style="width:15%"><center>Aksi</th>
+                            <th style="width:20%"><center>ID User</th>
+                            <th style="width:50%"><center>Nama User</th>
+                            <th style="width:10%"><center>Level</th>
+                            <th style="width:20%"><center>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,8 +46,10 @@
                             <tr>
                                 <td><center> {{$item -> id}}</td>
 
-                                <td>{{$item -> kategori}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->level}}</td>
 
+                                @if($item->level!="admin")
                                 <td><center>
                                     <a href="{{route('kelola-kategori.edit', $item-> id)}}" class="btn btn-info">
                                     <i class="fa fa-pencil-alt"></i>
@@ -60,6 +59,10 @@
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </td>
+                                @else
+                                <td><center>-</td>
+                                @endif
+
                             </tr>
                         @empty
                             <tr>
@@ -101,7 +104,7 @@
                             swal("Berhasil menghapus!", results.message, "success");
                             location.reload();
                         } else {
-                            swal("Gagal menghapus!", "Ada mading yang menggunakan kategori ini", "error");
+                            swal("Error!", results.message, "error");
                             // location.reload();
                         }
                     }

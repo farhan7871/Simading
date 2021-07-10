@@ -19,8 +19,10 @@ class KelolaMadingController extends Controller
         if ($request->has('cari')){
             $items = KelolaMading::where('deskripsi', 'LIKE', '%'.$request->cari.'%')->get();
         }else{
+            $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
 
-        $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
+            // urutkan mading yang terbaru diatas
+            $items = $items->sortBy('updated_at');
         }
 
         // sweet alert success

@@ -20,11 +20,9 @@ class UserController extends Controller
     {
         $items = User::all();
 
-        // return view('pages.user.tampilan');
-
-        // return view('pages.admin.kelola-kategori.index', [
-        //     'items' => $items
-        // ]);
+        return view('pages.admin.kelola-user.index', [
+            'items' => $items
+        ]);
     }
 
     /**
