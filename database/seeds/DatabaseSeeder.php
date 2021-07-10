@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserSeeder::class);
+
+        // user admin
         DB::table('users')->insert([
             'name' => 'Rayhan Admin',
             'email' => 'rayhan@admin.com',
@@ -29,6 +31,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'name' => 'Canda Admin',
+            'email' => 'canda@admin.com',
+            'password' => Hash::make(123456),
+            'level' => 'admin',
+        ]);
+
+        // user sender
+        DB::table('users')->insert([
             'name' => 'Rayhan',
             'email' => 'rayhan@email.com',
             'password' => Hash::make(123456),
@@ -38,6 +48,13 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Fahri',
             'email' => 'fahri@email.com',
+            'password' => Hash::make(123456),
+            'level' => 'sender',
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Canda',
+            'email' => 'canda@email.com',
             'password' => Hash::make(123456),
             'level' => 'sender',
         ]);

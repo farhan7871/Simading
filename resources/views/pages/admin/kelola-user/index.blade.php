@@ -21,9 +21,9 @@
             <div class="table-responsive">
 
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right "
-                    method="GET" action="{{route('kelola-kategori.index')}}">
+                    method="GET" action="{{route('kelola-user.index')}}">
                     <div class="input-group">
-                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Cari nama ..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>

@@ -17,9 +17,11 @@ class KelolaKategoriController extends Controller
         if ($request->has('cari')){
             $items = KelolaKategori::where('kategori', 'LIKE', '%'.$request->cari.'%')->get();
         }else{
-
-        $items = KelolaKategori::all();
-
+            $items = KelolaKategori::all();
+            // $items = $user->items()->select('items.*', 'count(items.id) AS items_count')
+            // ->groupBy('items.id')
+            // ->get()
+            // ->toArray();
         }
 
         return view('pages.admin.kelola-kategori.index', [

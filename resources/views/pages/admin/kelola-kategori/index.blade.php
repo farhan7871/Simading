@@ -41,6 +41,7 @@
                         <tr>
                             <th style="width:20%"><center>ID Kategori</th>
                             <th style="width:65%"><center>Nama Kategori</th>
+                            <!-- <th style="width:65%"><center>Digunakan</th> -->
                             <th style="width:15%"><center>Aksi</th>
                         </tr>
                     </thead>
@@ -50,6 +51,8 @@
                                 <td><center> {{$item -> id}}</td>
 
                                 <td>{{$item -> kategori}}</td>
+
+                                <!-- <td>{{$item -> kategori}}</td> -->
 
                                 <td><center>
                                     <a href="{{route('kelola-kategori.edit', $item-> id)}}" class="btn btn-info">
