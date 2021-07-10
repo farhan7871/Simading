@@ -20,27 +20,35 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    {{-- menuju dashboard admin --}}
+    <!-- dashboard admin -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-home"></i>
             <span>Dashboard</span></a>
     </li>
 
-    {{-- menuju halaman kelola kategori --}}
+    <!-- kelola kategori -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('kelola-kategori.index')}}">
-            <i class="fas fa-folder-plus"></i>
+            <i class="fas fa-th-large"></i>
             <span>Kelola Kategori</span></a>
-    </li>
+    </li>   
 
-     {{-- menuju halaman kelola mading --}}
+    <!-- kelola mading -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('kelola-mading.index')}}">
-            <i class="fas fa-folder-plus"></i>
+            <i class="fas fa-inbox"></i>
             <span>Kelola Mading</span></a>
     </li>
-         {{-- keluar --}}
+
+    <!-- kelola user -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('kelola-user.index')}}">
+            <i class="fas fa-users"></i>
+            <span>Kelola User</span></a>
+    </li>
+
+    <!-- logout -->
     <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
     

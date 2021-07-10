@@ -16,15 +16,17 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
-        $items = User::all();
+        if($request->has('cari')){
+            $items = User::where('name', 'LIKE', '%'.$request->cari.'%')->get();
+        } else{
+            $items = User::all();
+        }
 
-        // return view('pages.user.tampilan');
-
-        // return view('pages.admin.kelola-kategori.index', [
-        //     'items' => $items
-        // ]);
+        return view('pages.admin.kelola-user.index', [
+            'items' => $items
+        ]);
     }
 
     /**

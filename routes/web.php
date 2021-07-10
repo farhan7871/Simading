@@ -51,17 +51,20 @@ Route::prefix('admin')
     ->middleware(['auth', 'admin'])
     ->group(function () {
         
-        // Menuju halaman utama admin
+        // dashboard admin
         Route::get('/', 'DashboardController@index')
             ->name('dashboard');
 
-        // Menuju halaman kelola kategori
+        // kelola kategori
         Route::resource('kelola-kategori', 'KelolaKategoriController');
 
-        // Menuju halaman kelola mading
+        // kelola mading
+        Route::put('verifyMading/{id}','KelolaMadingController@verifyMading');
         Route::resource('kelola-mading', 'KelolaMadingController');
 
-        Route::put('verifyMading/{id}','KelolaMadingController@verifyMading');
+        // kelola kategori
+        Route::resource('kelola-user', 'UserController');
+
     });
 
     Route::prefix('user')
