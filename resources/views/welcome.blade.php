@@ -168,20 +168,24 @@
     </section>
 
 <section class="mbr-section " id="content7-e">
-    <div class="container">
-        <div class="row row-cols-3 row-cols-md-2 g-4">
+    <div class="container pb-5">
+        <div class="row row-cols-3 row-cols-md-3 g-4">
             @forelse ($items as $item)
-                <div class="col">
-                    <div class="card shadow text-center" style="width: 250px; height: 150px">
+                <div class="col mt-5">
+                    <div class="card shadow text-center" style="width: 250px; height: 370px; background-color: #f1e1d2">
                         <div class="card-header">
                             <h3>{{$item ->kelola_kategori->kategori}}</h2>
                         </div>
                         <a href="{{ url('/mading/'.$item->id) }}">
-                            <img class="card-img-top" src="{{asset('/storage/'.$item->gambar)}}" alt="">
+                            <img class="card-img-top" style="width: 100%; height: 15vw; object-fit:cover;" src="{{asset('/storage/'.$item->gambar)}}" alt="">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title"> {{$item -> deskripsi}}</h5>
-
+                            <h5 class="card-title"> {{$item->deskripsi}}</h5>
+                            @if ($item->created_at == null)
+                                <p> Terbit: {{ __('Tidak diketahui') }}</p>
+                            @else
+                                <p> Terbit: {{$item->created_at->isoFormat('DD MMMM YYYY')}}</p>
+                            @endif
                         </div>
                     </div>
                 </div>
