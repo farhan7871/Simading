@@ -169,7 +169,7 @@
 
 <section class="mbr-section " id="content7-e">
     <div class="container pb-5">
-        <div class="row row-cols-3 row-cols-md-3 g-4">
+        <div class="row row-cols-2 g-4">
             @forelse ($items as $item)
                 <div class="col mt-5">
                     <div class="card shadow text-center" style="width: 250px; height: 370px; background-color: #f1e1d2">
@@ -196,20 +196,36 @@
     </div>
 </section>
 
-{{-- @foreach ($items as $item)
-<div class="col"> 
-    <div class="media row mt-4">
-    <div class="mbr-figure" style="width: 60%;">
-        <center>
-            <h2>{{$item -> kelola_kategori_kategori}}</h2>
-                <a href="{{ url('/mading/'.$item->id) }}"><img style="width: 300px; height: 250px;" class="img-thumbnail" src="{{asset('/storage/'.$item->gambar)}}"> <br></a>
-                <h5 style="line-height:1.3; margin-bottom:20px"> {{$item -> deskripsi}}</h5>
-                <p> Terbit: {{$item -> created_at}}</p>
-        </center>
+<section class="mbr-section form3 cid-s8DA9JuJJu"  id="saran_page">
+    <div class="container pb-5">
+        <div class="row row-cols-2">
+            <div class="col">
+                <div class="card shadow mx-5">
+                    <div class="card-header text-center">
+                        <h2>SARAN</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('suggest') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="email_saran" class="form-label">Email</label>
+                                <input type="email" name="email" id="email_saran" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="saran" class="form-label">Saran</label>
+                                <textarea name="content" id="saran" class="form-control" cols="30" rows="4" required minlength="10"></textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success" type="submit">Kirim</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+        </div>
     </div>
-    </div>
-</div>
-@endforeach  --}}
+</section>
+
 <section class="cid-s29Hrb0Wk7" id="social-buttons3-i">
     <div class="container">
         <div class="media-container-row">
