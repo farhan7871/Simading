@@ -201,7 +201,7 @@
         <div class="row row-cols-2">
             <div class="col">
                 <div class="card shadow mx-5">
-                    <div class="card-header text-center">
+                    <div class="card-header text-center" style="background-color: #635A51; color: white;">
                         <h2>SARAN</h2>
                     </div>
                     <div class="card-body">
@@ -209,15 +209,13 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="email_saran" class="form-label">Email</label>
-                                <input type="email" name="email" id="email_saran" class="form-control" required>
+                                <input type="" name="email" id="email_saran" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label for="saran" class="form-label">Saran</label>
                                 <textarea name="content" id="saran" class="form-control" cols="30" rows="4" required minlength="10"></textarea>
                             </div>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-success" type="submit">Kirim</button>
-                            </div>
+                            <button class="btn-custom-block" type="submit">Kirim</button>    
                         </form>
                     </div>
                 </div>
