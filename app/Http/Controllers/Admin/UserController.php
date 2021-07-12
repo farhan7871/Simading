@@ -141,7 +141,7 @@ class UserController extends Controller
         $item = User::findOrFail($id);
         // dd('haha');
 
-        $item->level = "admin"; // verified
+        $item->level = "sender"; // verified
         $item->save();
         
         return response()->json(['success'=> true]);
