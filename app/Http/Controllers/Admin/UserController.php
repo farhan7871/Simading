@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
 use App\User;
+use App\KelolaMading;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,6 +23,12 @@ class UserController extends Controller
             $items = User::where('name', 'LIKE', '%'.$request->cari.'%')->get();
         } else{
             $items = User::all();
+        }
+
+        // sweet alert success
+        if(session('success_message')){
+            Alert::success('Berhasil!', session('success_message'));
+            
         }
 
         return view('pages.admin.kelola-user.index', [
@@ -115,9 +122,28 @@ class UserController extends Controller
     // Fungsi untuk menghapus data
     public function destroy($id)
     {
-        $item = User::findOrFail($id);
-        $item->delete();
+        
 
         // return redirect()->route('kelola-kategori.index');
+        if (KelolaMading::where('users_id', '=', $id)->exists()) {
+            // tampilkan pesan error
+            return response()->json(['success'=> false]);
+        }else{
+            // save delete, karena kategori tidak dipakai
+            $item = User::findOrFail($id);
+            $item->delete();
+            return response()->json(['success'=> true]);
+        }
+    }
+
+    // mengubah level user
+    public function verifyUser($id){
+        $item = User::findOrFail($id);
+        // dd('haha');
+
+        $item->level = "admin"; // verified
+        $item->save();
+        
+        return response()->json(['success'=> true]);
     }
 }

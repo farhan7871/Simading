@@ -63,7 +63,8 @@ Route::prefix('admin')
         Route::put('verifyMading/{id}','KelolaMadingController@verifyMading');
         Route::resource('kelola-mading', 'KelolaMadingController');
 
-        // kelola kategori
+        // kelola user
+        Route::get('verifyUser/{id}','UserController@verifyUser');
         Route::resource('kelola-user', 'UserController');
 
     });

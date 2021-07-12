@@ -51,11 +51,11 @@
 
                                 @if($item->level!="admin")
                                 <td><center>
-                                    <a href="{{route('kelola-kategori.edit', $item-> id)}}" class="btn btn-info">
-                                    <i class="fa fa-pencil-alt"></i>
-                                    </a>
+                                    <button id="btn-user-verif" onclick="userVerifConfirmation({{$item->id}})" class="btn btn-info">
+                                        <i class="fa fa-clipboard-check"></i>
+                                    </button>
 
-                                    <button class="btn btn-danger" onclick="deleteConfirmation({{$item->id}})">
+                                    <button id="btn-delete-user" class="btn btn-danger" onclick="deleteConfirmation({{$item->id}})">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </td>
@@ -77,12 +77,13 @@
 
 </div>
 
-<!-- DELETE CONFIRMATION DIALOG -->
+
 <script type="text/javascript">
+    // delete confimration dialog
     function deleteConfirmation(id) {
         swal({
-            title: "Hapus kategori?",
-            text: "Mohon periksa kembali kategori!",
+            title: "Hapus User?",
+            text: "Mohon periksa kembali!",
             type: "warning",
             showCancelButton: !0,
             confirmButtonText: "Ya, Hapus!",
@@ -95,13 +96,55 @@
 
                 $.ajax({
                     type: 'DELETE',
-                    url: "/admin/kelola-kategori/" + id,
+                    url: "/admin/kelola-user/" + id,
                     data: {_token: CSRF_TOKEN},
                     dataType: 'JSON',
                     success: function (results) {
                         console.log(results);
                         if (results.success === true) {
                             swal("Berhasil menghapus!", results.message, "success");
+                            location.reload();
+                        } else {
+                            swal("Gagal menghapus!", "Ada mading yang telah dibuat User", "error");
+                            // location.reload();
+                        }
+                    }
+                });
+
+            } else {
+                e.dismiss;
+            }
+
+        }, function (dismiss) {
+            return false;
+        })
+    }
+
+    // verify confirmation dialog
+    function userVerifConfirmation(id) {
+        // console.log(id);
+        swal({
+            title: "Verifikasi User?",
+            text: "Jadikan User sebagai Pengirim?",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Ya, Verifikasi!",
+            cancelButtonText: "Tidak, Batal!",
+            reverseButtons: !0
+        }).then(function (e) {
+            // console.log("alert")
+            if (e.value === true) {
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+                $.ajax({
+                    type: 'GET',
+                    url: "/admin/verifyUser/" + id,
+                    data: {_token: CSRF_TOKEN},
+                    dataType: 'JSON',
+                    success: function (results) {
+                        console.log(results);
+                        if (results.success === true) {
+                            swal("Verifikasi Berhasil!", results.message, "success");
                             location.reload();
                         } else {
                             swal("Error!", results.message, "error");

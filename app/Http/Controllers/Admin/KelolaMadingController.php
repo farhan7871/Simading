@@ -28,6 +28,7 @@ class KelolaMadingController extends Controller
         // sweet alert success
         if(session('success_message')){
             Alert::success('Berhasil!', session('success_message'));
+            
         }
 
         return view('pages.admin.kelola-mading.index', [
