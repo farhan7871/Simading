@@ -80,7 +80,7 @@ class KelolaKategoriController extends Controller
             // tampilkan pesan error
             return response()->json(['success'=> false]);
         }else{
-            // save delete, karena kategori tidak dipakai
+            // safe delete, karena kategori tidak dipakai
             $item = KelolaKategori::findOrFail($id);
             $item->delete();
             return response()->json(['success'=> true]);

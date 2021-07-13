@@ -112,24 +112,14 @@ class UserController extends Controller
         // return redirect()->route('kelola-kategori.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    // Fungsi untuk menghapus data
+    // delete user 
     public function destroy($id)
     {
-        
-
-        // return redirect()->route('kelola-kategori.index');
         if (KelolaMading::where('users_id', '=', $id)->exists()) {
             // tampilkan pesan error
             return response()->json(['success'=> false]);
         }else{
-            // save delete, karena kategori tidak dipakai
+            // safe delete
             $item = User::findOrFail($id);
             $item->delete();
             return response()->json(['success'=> true]);
@@ -139,7 +129,6 @@ class UserController extends Controller
     // mengubah level user
     public function verifyUser($id){
         $item = User::findOrFail($id);
-        // dd('haha');
 
         $item->level = "sender"; // verified
         $item->save();

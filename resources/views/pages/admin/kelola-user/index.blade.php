@@ -51,11 +51,15 @@
 
                                 @if($item->level!="admin")
                                 <td><center>
-                                    <button id="btn-user-verif" onclick="userVerifConfirmation({{$item->id}})" class="btn btn-info">
-                                        <i class="fa fa-clipboard-check"></i>
-                                    </button>
+                                    @if($item->level == "sender")
+                                        <!-- sudah verif = tidak ada button -->
+                                    @else
+                                        <button id="btn-user-verif" onclick="userVerifConfirmation({{$item->id}})" class="btn btn-info">
+                                            <i class="fa fa-clipboard-check"></i>
+                                        </button>
+                                    @endif
 
-                                    <button id="btn-delete-user" class="btn btn-danger" onclick="deleteConfirmation({{$item->id}})">
+                                    <button id="btn-delete-user" class="btn btn-danger" onclick="UserdeleteConfirmation({{$item->id}})">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </td>
@@ -80,7 +84,7 @@
 
 <script type="text/javascript">
     // delete confimration dialog
-    function deleteConfirmation(id) {
+    function UserdeleteConfirmation(id) {
         swal({
             title: "Hapus User?",
             text: "Mohon periksa kembali!",
@@ -93,6 +97,7 @@
             // console.log("alert")
             if (e.value === true) {
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                console.log(CSRF_TOKEN)
 
                 $.ajax({
                     type: 'DELETE',
@@ -101,6 +106,7 @@
                     dataType: 'JSON',
                     success: function (results) {
                         console.log(results);
+                        console.log(id);
                         if (results.success === true) {
                             swal("Berhasil menghapus!", results.message, "success");
                             location.reload();
@@ -113,7 +119,7 @@
 
             } else {
                 e.dismiss;
-            }
+                }
 
         }, function (dismiss) {
             return false;
@@ -135,6 +141,7 @@
             // console.log("alert")
             if (e.value === true) {
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                console.log(CSRF_TOKEN)
 
                 $.ajax({
                     type: 'GET',
@@ -162,7 +169,6 @@
         })
     }
 </script>
-<!-- END DELETE CONFIRMATION DIALOG -->
 <!-- /.container-fluid -->
 
 <!-- End of Main Content -->
