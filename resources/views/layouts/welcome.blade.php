@@ -24,6 +24,28 @@
     <link rel="preload" as="style" href="{{url('frontend/assets/mobirise/css/mbr-additional.css')}}">
     <link rel="stylesheet" href="{{url('frontend/assets/mobirise/css/mbr-additional.css')}}" type="text/css">
 
+    <style>
+        .btn-custom-block {
+            display: block; 
+            border: none; 
+            width: 100%; 
+            height: 56px;
+            background-color: #198754; 
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;    
+        }
+
+        .btn-custom-block:hover {
+            background-color: #0f6d41; 
+        }
+
+        .btn-custom-block:focus {
+            outline: none;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -43,7 +65,7 @@
                             <img src="{{URL::asset('frontend/assets/images/logo-1.png')}}" alt="Mobirise" title="" style="height: 3.8rem;">
                     </span>
                     <span class="navbar-caption-wrap"><a class="navbar-caption text-info display-4"
-                            href="#">Majalah Dinding Online Fakultas Teknik</a></span>
+                            href="{{ route('home') }}">Majalah Dinding Online Fakultas Teknik</a></span>
                 </div>
             </div>
 

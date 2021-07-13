@@ -29,8 +29,8 @@
                             <label for="gambar">Gambar</label>
                             <input type="file" class="form-control" name="gambar" placeholder="gambar" required>
                         </div>
-                        <div class="form-group d-grid gap-2 col-6 mx-auto">
-                            <button type="submit" class="btn btn-primary">Kirim</button>
+                        <div class="form-group">
+                            <button type="submit" class="btn-custom-block">Kirim</button>
                         </div>
                     </form>
                 </div>
