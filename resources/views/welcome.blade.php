@@ -193,6 +193,11 @@
             
             @endforelse
         </div>
+        <div class="row my-5">
+            <div class="col order-last">
+                {{ $items->links() }}
+            </div>
+        </div>
     </div>
 </section>
 

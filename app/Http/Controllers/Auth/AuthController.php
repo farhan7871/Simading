@@ -86,7 +86,7 @@ class AuthController extends Controller {
             $sender->name = $request->name;
             $sender->email = $request->email;
             $sender->password = Hash::make($request->password_confirmation);
-            $sender->level = 'sender';
+            $sender->level = 'guest';
             $sender->save();
 
         } catch(\Exception $e) {

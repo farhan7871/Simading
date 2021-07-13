@@ -19,9 +19,9 @@ class HomeController extends Controller
     {
         if ($request->has('cari')){
             $items = KelolaMading::where('deskripsi', 'LIKE', '%'.$request->cari.'%')
-                                    ->where('status', 2)->get();
+                                    ->where('status', 2)->paginate(8);
         } else {
-            $items = KelolaMading::where('status', 2)->with(['kelola_kategori'])->get();
+            $items = KelolaMading::where('status', 2)->with(['kelola_kategori'])->paginate(8);
         }
 
         return view('welcome', [
