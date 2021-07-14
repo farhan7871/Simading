@@ -17,7 +17,7 @@
                     <div class="col-7">
                         <h2>{{$mading->kelola_kategori->kategori}}</h2>
                         <hr>
-                        <h5 style="line-height:1.3; margin-bottom:20px"> {{$mading->deskripsi}}</h5>
+                        <p style="line-height:1.3; margin-bottom:20px"> {{$mading->deskripsi}}</p>
                         <div class="row">
                             <div class="col-2">
                                 <p>Penulis</p>

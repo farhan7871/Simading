@@ -172,7 +172,7 @@
         <div class="row row-cols-3 g-4">
             @forelse ($items as $item)
                 <div class="my-3 mx-3">
-                    <div class="card shadow text-center text-white" style="width: 250px; height: 370px; background-color: #11638a;">
+                    <div class="card shadow text-center bg-white" style="width: 250px; height: 370px; background-color: #11638a;">
                         <div class="card-header">
                             <h3>{{$item ->kelola_kategori->kategori}}</h2>
                         </div>
@@ -180,8 +180,8 @@
                             <img class="card-img-top" style="width: 100%; height: 15vw; object-fit:cover;" src="{{asset('/storage/'.$item->gambar)}}" alt="">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title"> {{$item->deskripsi}}</h5>
-                            @if ($item->created_at == null)
+                            <h6 class="card-title text-truncate"> {{$item->deskripsi}}</h6>
+                            @if ($item->created_at == null || $item->created_at == '')
                                 <p> Terbit: {{ __('Tidak diketahui') }}</p>
                             @else
                                 <p> Terbit: {{$item->created_at->isoFormat('DD MMMM YYYY')}}</p>
@@ -193,10 +193,24 @@
             
             @endforelse
         </div>
-        <div class="row mt-2">
-            <div class="col-12">
+        <div class="row-cols-12 mt-2">
+            <div class="justify-content-center">
                 {{ $items->links() }}
             </div>
+            {{-- <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav> --}}
         </div>
     </div>
 </section>
