@@ -169,10 +169,10 @@
 
 <section class="mbr-section " id="content7-e">
     <div class="container pb-5">
-        <div class="row row-cols-2 g-4">
+        <div class="row row-cols-3 g-4">
             @forelse ($items as $item)
-                <div class="col mt-5">
-                    <div class="card shadow text-center" style="width: 250px; height: 370px; background-color: #f1e1d2">
+                <div class="my-3 mx-3">
+                    <div class="card shadow text-center text-white" style="width: 250px; height: 370px; background-color: #11638a;">
                         <div class="card-header">
                             <h3>{{$item ->kelola_kategori->kategori}}</h2>
                         </div>
@@ -193,8 +193,8 @@
             
             @endforelse
         </div>
-        <div class="row my-5">
-            <div class="col order-last">
+        <div class="row mt-2">
+            <div class="col-12">
                 {{ $items->links() }}
             </div>
         </div>
