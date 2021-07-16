@@ -143,33 +143,60 @@
 </section>
 
 <section class="mbr-section form3 cid-s8DA9JuJJu" id="form3-t">
-
-     <div class="container">
-               
-            <div class="row py-4 justify-content-center">
-                <div class="col-12 col-lg-6  col-md-8 " data-form-type="formoid">
-                    <!---Formbuilder Form--->
-                    <form action="{{route('home')}}" method="GET" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
-                        {{-- <input type="hidden" name="cari" data-form-email="true"> --}}
-                        <div class="row">
-                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                            </div>
-                        </div>
-                        <div class="dragArea row">
-                                <div class="input-group">
-                                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Pencarian..." aria-label="Search" aria-describedby="basic-addon2">
-                                    </div>
-                        </div>
-                    </form><!---Formbuilder Form--->
+    <div class="container py-5">    
+        <div class="row py-4 justify-content-center">
+            <div class="col-12 col-lg-6  col-md-8 " data-form-type="formoid">
+                <div class="input-group">
+                    <input id="search_madings" type="text" class="form-control bg-light border-0 small" placeholder="Pencarian deskripsi..." aria-label="Search" aria-describedby="basic-addon2">
                 </div>
+                {{-- <form action="{{route('home')}}" method="GET" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
+                    <input type="hidden" name="cari" data-form-email="true">
+                    <div class="row">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12"></div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="input-group">
+                            <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Pencarian deskripsi..." aria-label="Search" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                </form> --}}
             </div>
         </div>
-    </section>
+        <style>
+            #filter_data label {
+                margin: 10px
+            }
+            #filter_data span {
+                position: relative;
+                display: inline-block;
+                background: #D3E0EA;
+                padding: 15px 30px;
+                border-radius: 30px;
+                transition: 0.5s;
+                user-select: none;
+            }
+            #filter_data input[type='checkbox']:checked ~ span {
+                background: #276678;
+                color: beige;
+            }
+        </style>
+        <div class="row row-cols-auto g-4" id="filter_data">
+            @forelse ($categories as $category)
+            <label for="btn-{{ $category->id }}" style="cursor: pointer">
+                <input type="checkbox" class="category-cb" style="display: none" name="btn-{{ $category->id }}" id="btn-{{ $category->id }}" value="{{ $category->id }}">
+                <span>{{ $category->kategori }}</span>
+            </label>
+            @empty
+                
+            @endforelse
+        </div>
+    </div>
+</section>
 
 <section class="mbr-section " id="content7-e">
     <div class="container pb-5">
-        <div class="row row-cols-3 g-4">
+        <div class="row row-cols-3 g-4" id="data-madings-div">
             @forelse ($items as $item)
                 <div class="my-3 mx-3">
                     <div class="card shadow text-center bg-white" style="width: 250px; height: 370px; background-color: #11638a;">
@@ -193,7 +220,7 @@
             
             @endforelse
         </div>
-        <div class="row-cols-12 mt-2">
+        <div class="row-cols-12 mt-2" id="pagination-div">
             <div class="justify-content-center">
                 {{ $items->links() }}
             </div>
