@@ -32,7 +32,7 @@
         }
 
         body {
-            background-color: beige;
+            background-color: white;
         }
 
         p {
@@ -58,7 +58,7 @@
         }
 
         .container {
-            width: 40%;
+            width: 80%;
         }
         .card {
             margin-top: 15%;
