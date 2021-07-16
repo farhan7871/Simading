@@ -35,9 +35,9 @@
                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="width:20%"><center>ID User</th>
+                            <th style="width:10%"><center>ID User</th>
                             <th style="width:50%"><center>Nama User</th>
-                            <th style="width:10%"><center>Level</th>
+                            <th style="width:20%"><center>Level</th>
                             <th style="width:20%"><center>Aksi</th>
                         </tr>
                     </thead>
