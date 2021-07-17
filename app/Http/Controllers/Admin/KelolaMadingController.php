@@ -111,7 +111,7 @@ class KelolaMadingController extends Controller
         $item->deskripsi = $request->deskripsi;
         $item->save();
 
-        return redirect()->route('kelola-mading.index')->withSuccessMessage('Berhasil mengubah');
+        return redirect()->route('kelola-mading.index');
     }
 
     // Fungsi untuk menghapus data

@@ -46,7 +46,8 @@
                 
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi</label>
-                    <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item -> deskripsi}}">
+                    <textarea class="form-control" name="deskripsi" placeholder="Deskripsi" value="" cols="30" rows="3">{{$item -> deskripsi}}</textarea>
+                    <!-- <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" value="{{$item -> deskripsi}}"> -->
                 </div>
 
                 <div class="form-group">
