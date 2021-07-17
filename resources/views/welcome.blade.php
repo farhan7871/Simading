@@ -65,111 +65,61 @@
     </div>
 </section>
 
-<section class="carousel slide cid-s29GqyWEFF" data-interval="false" id="slider2-8">
-
-
-    <div class="container content-slider">
-        <div class="content-slider-wrap">
-            <div>
-                <div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="false" data-interval="false">
-                    <ol class="carousel-indicators">
-                        <li data-app-prevent-settings="" data-target="#slider2-8" data-slide-to="0"></li>
-                        <li data-app-prevent-settings="" data-target="#slider2-8" data-slide-to="1"></li>
-                        <li data-app-prevent-settings="" data-target="#slider2-8" class=" active" data-slide-to="2">
-                        </li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(fronted/assets/images/background1.jpg);">
-                            <div class="container container-slide">
-                                <div class="image_wrapper">
-                                    <div class="mbr-overlay"></div>
-                                    <img src="{{URL::asset('frontend/assets/images/background1.jpg')}}" alt="" title="">
-                                      
-                                    {{-- <div class="carousel-caption justify-content-center">
-                                        <div class="col-10 align-center">
-                                            <p class="lead mbr-text mbr-fonts-style display-7"></p>
-                                        </div>
-                                    </div> --}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/background3.jpg);">
-                            <div class="container container-slide">
-                                <div class="image_wrapper">
-                                    <div class="mbr-overlay"></div>
-                                    <img src="{{URL::asset('frontend/assets/images/background3.jpg')}}" alt="" title="">
-                                    {{-- <div class="carousel-caption justify-content-center">
-                                        <div class="col-10 align-center">
-                                            <p class="lead mbr-text mbr-fonts-style display-7">Slide with youtube video background and color overlay. Title and text are aligned to the left.</p>
-                                        </div>
-                                    </div> --}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/4.jpg);">
-                            <div class="container container-slide">
-                                <div class="image_wrapper">
-                                    <div class="mbr-overlay"></div>
-                                    <img src="{{URL::asset('frontend/assets/images/4.jpg')}}" alt="" title="">
-                                    <div class="carousel-caption justify-content-center">
-                                        <div class="col-10 align-center">
-                                            <p class="lead mbr-text mbr-fonts-style display-7">Fakultas Teknik merupakan salah satu Fakultas yang ada di Universitas Muhammadiyah Banjarmasin</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider2-8"><span aria-hidden="true"
-                            class="mbri-left mbr-iconfont"></span><span class="sr-only">Previous</span></a><a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider2-8"><span aria-hidden="true"
-                            class="mbri-right mbr-iconfont"></span><span class="sr-only">Next</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section content5 cid-s29Gt3vK9o mbr-parallax-background" id="content5-9">
-    <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1"><br>BERITA TERKINI</h2>
-                <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">
-                    Majalah Dinding Online Fakultas Teknik<br>Universitas Muhammadiyah Banjarmasin</h3>
-
-
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="mbr-section form3 cid-s8DA9JuJJu" id="form3-t">
-
-     <div class="container">
-               
-            <div class="row py-4 justify-content-center">
-                <div class="col-12 col-lg-6  col-md-8 " data-form-type="formoid">
-                    <!---Formbuilder Form--->
-                    <form action="{{route('home')}}" method="GET" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
-                        {{-- <input type="hidden" name="cari" data-form-email="true"> --}}
-                        <div class="row">
-                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                            </div>
-                        </div>
-                        <div class="dragArea row">
-                                <div class="input-group">
-                                        <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Pencarian..." aria-label="Search" aria-describedby="basic-addon2">
-                                    </div>
-                        </div>
-                    </form><!---Formbuilder Form--->
+    <div class="container py-5">    
+        <div class="row py-4 justify-content-center">
+            <div class="col-12 col-lg-6  col-md-8 " data-form-type="formoid">
+                <div class="input-group">
+                    <input id="search_madings" type="text" class="form-control bg-light border-0 small" placeholder="Pencarian deskripsi..." aria-label="Search" aria-describedby="basic-addon2">
                 </div>
+                {{-- <form action="{{route('home')}}" method="GET" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
+                    <input type="hidden" name="cari" data-form-email="true">
+                    <div class="row">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12"></div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="input-group">
+                            <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Pencarian deskripsi..." aria-label="Search" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                </form> --}}
             </div>
         </div>
-    </section>
+        <style>
+            #filter_data label {
+                margin: 10px
+            }
+            #filter_data span {
+                position: relative;
+                display: inline-block;
+                background: #D3E0EA;
+                padding: 15px 30px;
+                border-radius: 30px;
+                transition: 0.5s;
+                user-select: none;
+            }
+            #filter_data input[type='checkbox']:checked ~ span {
+                background: #276678;
+                color: beige;
+            }
+        </style>
+        <div class="row row-cols-auto g-4" id="filter_data">
+            @forelse ($categories as $category)
+            <label for="btn-{{ $category->id }}" style="cursor: pointer">
+                <input type="checkbox" class="category-cb" style="display: none" name="btn-{{ $category->id }}" id="btn-{{ $category->id }}" value="{{ $category->id }}">
+                <span>{{ $category->kategori }}</span>
+            </label>
+            @empty
+                
+            @endforelse
+        </div>
+    </div>
+</section>
 
 <section class="mbr-section " id="content7-e">
     <div class="container pb-5">
-        <div class="row row-cols-3 g-4">
+        <div class="row row-cols-3 g-4" id="data-madings-div">
             @forelse ($items as $item)
                 <div class="my-3 mx-3">
                     <div class="card shadow text-center bg-white" style="width: 250px; height: 370px; background-color: #11638a;">
@@ -193,24 +143,10 @@
             
             @endforelse
         </div>
-        <div class="row-cols-12 mt-2">
+        <div class="row-cols-12 mt-2" id="pagination-div">
             <div class="justify-content-center">
                 {{ $items->links() }}
             </div>
-            {{-- <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                  </li>
-
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav> --}}
         </div>
     </div>
 </section>
@@ -242,34 +178,5 @@
         </div>
     </div>
 </section>
-
-<section class="cid-s29Hrb0Wk7" id="social-buttons3-i">
-    <div class="container">
-        <div class="media-container-row">
-            <div class="col-md-8 align-center">
-                <h2 class="pb-3 mbr-section-title mbr-fonts-style display-2">
-                    BAGIKAN HALAMAN INI!
-                </h2>
-                <div>
-                    <div class="mbr-social-likes">
-                        <span class="btn btn-social socicon-bg-facebook facebook mx-2" title="Share link on Facebook">
-                            <i class="socicon socicon-facebook"></i>
-                        </span>
-                        {{-- <span class="btn btn-social twitter socicon-bg-twitter mx-2" title="Share link on Twitter">
-                            <i class="socicon socicon-twitter"></i>
-                        </span> --}}
-
-
-
-                        <span class="btn btn-social mailru socicon-bg-mail mx-2" title="Share link on Mailru">
-                            <i class="socicon socicon-mail"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
     
 @endsection

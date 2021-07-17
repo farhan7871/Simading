@@ -71,23 +71,13 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}"><span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link link text-info display-4" href="#content5-9"></span>Berita</a></li>
-                    <li class="nav-item"><a class="nav-link link text-info display-4" href="#saran_page"></span>Saran</a></li>
-                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('upload_mading_view')}}"></span>Unggah Mading</a></li>
-                    <li class="nav-item"><a class="nav-link link text-info display-4" href="#social-buttons3-i"></span>Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('home')}}">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="#form3-t">Cari</a></li>
+                    <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('upload_mading_view')}}">Unggah Mading</a></li>
+
                     @if (Auth::check()) 
-                        <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('logout_request')}}"></span>Keluar</a></li>
-                        {{-- <li class="nav-item dropdown">
-                            <a class="nav-link link text-info display-4 dropdown-toggle" href="#" id="userMenuDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ __(Auth::user()->name) }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="userMenuDropDown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li> --}}
+                        <li class="nav-item"><a class="nav-link link text-info display-4" href="{{route('logout_request')}}">Keluar</a></li>
+                        
                     @else
                         <li class="nav-item"><a class="nav-link link text-info display-4" href="{{ route('login_view') }}"></span>Masuk</a></li>
                     @endif
@@ -144,7 +134,7 @@
             <div class="media-container-row mbr-white">
                 <div class="col-sm-6 copyright">
                     <p class="mbr-text mbr-fonts-style display-7">
-                        © 2020 Fakultas Teknik | Universitas Muhammadiyah Banjarmasin.
+                        © 2021 Fakultas Teknik | Universitas Muhammadiyah Banjarmasin.
                     </p>
                 </div>
                 <div class="col-md-6">
@@ -201,6 +191,8 @@
 <script src="{{url('frontend/assets/touchswipe/jquery.touch-swipe.min.js')}}"></script>
 <script src="{{url('frontend/assets/theme/js/script.js')}}"></script>
 <script src="{{url('frontend/assets/slidervideo/script.js')}}"></script>
+{{-- <script src="{{ url('frontend/assets/custom_JS/filter.js') }}"></script>
+<script src="{{ url('frontend/assets/custom_JS/search.js') }}"></script> --}}
     
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 

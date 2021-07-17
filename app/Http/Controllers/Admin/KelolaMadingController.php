@@ -22,7 +22,7 @@ class KelolaMadingController extends Controller
             $items = KelolaMading::with(['kelola_kategori' , 'users'])->get();
 
             // urutkan mading yang terbaru diatas
-            $items = $items->sortBy('updated_at');
+            $items = $items->sortByDesc('created_at');
         }
 
         // sweet alert success

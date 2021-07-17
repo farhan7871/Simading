@@ -24,7 +24,7 @@ Route::get('/masuk', function () {
 
 // Menuju halamana utama website
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/search', 'HomeController@index')->name('search');
+Route::get('/mading/fetch_data/{category_id}', 'HomeController@getMadingJquery');
 Route::get('/mading/{id}', 'DetailMadingController@index');
 Route::post('suggestion/store', 'HomeController@storeSuggestion')->name('suggest');
 

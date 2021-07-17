@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\KelolaKategori;
 use App\KelolaMading;
 use App\Suggestion;
 use Illuminate\Http\Request;
@@ -24,8 +25,11 @@ class HomeController extends Controller
             $items = KelolaMading::where('status', 2)->with(['kelola_kategori'])->orderBy('created_at', 'DESC')->paginate(8);
         }
 
+        $categories = KelolaKategori::all();
+
         return view('welcome', [
-            'items' => $items
+            'items' => $items,
+            'categories' => $categories,
         ]);
     }
 
@@ -52,6 +56,58 @@ class HomeController extends Controller
 
         Alert::alert('Berhasil memeberikan saran', 'Terima kasih telah memberikan saran kepada kami', 'success');
         return redirect()->route('home');
+
+    }
+
+    public function filterMadings($id) {
+        $madings = KelolaMading::with('kelola_kategori')
+                                ->where('kelola_kategori_id', $id)
+                                ->where('status', 2)
+                                ->orderBy('created_at', 'DESC')
+                                ->paginate(8);
+
+        return response()->json($madings);
+    }
+
+    public function fetchAllMadings() { 
+        $madings = KelolaMading::with('kelola_kategori')
+                                ->where('status', 2)
+                                ->orderBy('created_at', 'DESC')
+                                ->paginate(8);
+
+        return response()->json($madings);
+    }
+
+    public function liveSearchMadings(Request $request) {
+        if($request->ajax()) {
+            $query = $request->get('query');
+            if($query != '') {
+                $data = KelolaMading::with('kelola_kategori')
+                                    ->where('deskripsi', 'LIKE', '%'.$query.'%')
+                                    ->where('status', 2)->orderBy('created_at', 'DESC')->paginate(8);
+            } else {
+                $data = KelolaMading::with('kelola_kategori')
+                    ->where('status', 2)
+                    ->with(['kelola_kategori'])
+                    ->orderBy('created_at', 'DESC')
+                    ->paginate(8);
+            }
+        }
+
+        return response()->json($data);
+    }
+
+    public function getMadingJquery(Request $request, $category_id) {
+
+        try {
+            
+            if($request->ajax()) {
+
+            }
+
+        } catch(\Exception $e) {
+            return response()->json($e);
+        }
 
     }
 }

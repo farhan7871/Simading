@@ -39,10 +39,9 @@
                 <table class="table table-bordered mb-4"  width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="width:20%"><center>ID Kategori</th>
-                            <th style="width:65%"><center>Nama Kategori</th>
-                            <!-- <th style="width:65%"><center>Digunakan</th> -->
-                            <th style="width:15%"><center>Aksi</th>
+                            <th style="width:15%"><center>ID Kategori</th>
+                            <th style="width:60%"><center>Nama Kategori</th>
+                            <th style="width:25%"><center>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
