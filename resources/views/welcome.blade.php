@@ -130,7 +130,8 @@
                             <img class="card-img-top" style="width: 100%; height: 15vw; object-fit:cover;" src="{{asset('/storage/'.$item->gambar)}}" alt="">
                         </a>
                         <div class="card-body">
-                            <h6 class="card-title text-truncate"> {{$item->deskripsi}}</h6>
+                            <h5 class="card-title text-truncate"> {{$item->judul}}</h6>
+                            <h6 class="card-text text-truncate"> {{$item->deskripsi}}</h6>
                             @if ($item->created_at == null || $item->created_at == '')
                                 <p> Terbit: {{ __('Tidak diketahui') }}</p>
                             @else
@@ -140,7 +141,9 @@
                     </div>
                 </div>
             @empty
-            
+                <div class="col">
+                    <p class="text-center">Tidak terdapat mading</p>
+                </div>
             @endforelse
         </div>
         <div class="row-cols-12 mt-2" id="pagination-div">

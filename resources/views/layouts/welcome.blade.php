@@ -191,8 +191,9 @@
 <script src="{{url('frontend/assets/touchswipe/jquery.touch-swipe.min.js')}}"></script>
 <script src="{{url('frontend/assets/theme/js/script.js')}}"></script>
 <script src="{{url('frontend/assets/slidervideo/script.js')}}"></script>
-{{-- <script src="{{ url('frontend/assets/custom_JS/filter.js') }}"></script>
-<script src="{{ url('frontend/assets/custom_JS/search.js') }}"></script> --}}
+
+{{-- JS untuk search dan filter live --}}
+<script src="{{ url('frontend/assets/custom_JS/searchAndFilter.js') }}"></script> 
     
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 

@@ -66,7 +66,8 @@ class DatabaseSeeder extends Seeder
         DB::table('kelola_madings')->insert([
             'users_id' => 3,
             'kelola_kategori_id' => 1,
-            'deskripsi' => 'ini post sample',
+            'judul' => 'Lorem Ipsum',
+            'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             'status' => 1,
         ]);
 

@@ -11,21 +11,16 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index(Request $request)
+    // fungsi index
+    public function index()
     {
-        if ($request->has('cari')){
-            $items = KelolaMading::where('deskripsi', 'LIKE', '%'.$request->cari.'%')
-                                    ->where('status', 2)->orderBy('created_at', 'DESC')->paginate(8);
-        } else {
-            $items = KelolaMading::where('status', 2)->with(['kelola_kategori'])->orderBy('created_at', 'DESC')->paginate(8);
-        }
 
-        $categories = KelolaKategori::all();
+        $items = KelolaMading::where('status', 2)
+                    ->with(['kelola_kategori'])
+                    ->orderBy('created_at', 'DESC')
+                    ->paginate(8);
+
+        $categories = KelolaKategori::has('kelola_mading')->get();
 
         return view('welcome', [
             'items' => $items,
@@ -33,6 +28,7 @@ class HomeController extends Controller
         ]);
     }
 
+    // fungsi simpan saran
     public function storeSuggestion(Request $request) {
         $validator = Validator::make($request->all(), [
             'email' => 'email',
@@ -59,51 +55,73 @@ class HomeController extends Controller
 
     }
 
-    public function filterMadings($id) {
-        $madings = KelolaMading::with('kelola_kategori')
-                                ->where('kelola_kategori_id', $id)
-                                ->where('status', 2)
-                                ->orderBy('created_at', 'DESC')
-                                ->paginate(8);
-
-        return response()->json($madings);
-    }
-
-    public function fetchAllMadings() { 
-        $madings = KelolaMading::with('kelola_kategori')
-                                ->where('status', 2)
-                                ->orderBy('created_at', 'DESC')
-                                ->paginate(8);
-
-        return response()->json($madings);
-    }
-
-    public function liveSearchMadings(Request $request) {
-        if($request->ajax()) {
-            $query = $request->get('query');
-            if($query != '') {
-                $data = KelolaMading::with('kelola_kategori')
-                                    ->where('deskripsi', 'LIKE', '%'.$query.'%')
-                                    ->where('status', 2)->orderBy('created_at', 'DESC')->paginate(8);
-            } else {
-                $data = KelolaMading::with('kelola_kategori')
-                    ->where('status', 2)
-                    ->with(['kelola_kategori'])
-                    ->orderBy('created_at', 'DESC')
-                    ->paginate(8);
-            }
-        }
-
-        return response()->json($data);
-    }
-
+    // fungsi get data mading menggunakan jquery
     public function getMadingJquery(Request $request, $category_id) {
+
+        $html = '';
 
         try {
             
             if($request->ajax()) {
+                // get request dengan header query
+                $query = $request->get('query');
+                // check apakah id bernilai 'all'
+                if($category_id == 'all') {
+                    if($query != '') {
+                        $madings = KelolaMading::with('kelola_kategori')
+                                    ->where('judul', 'LIKE', '%'.$query.'%')
+                                    ->where('status', 2)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->paginate(8);
+                    } else {
+                        $madings = KelolaMading::with('kelola_kategori')
+                                    ->where('status', 2)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->paginate(8);
+                    }
 
+                } else {
+                    if($query != '') {
+                        $madings = KelolaMading::with('kelola_kategori')
+                                    ->where('judul', 'LIKE', '%'.$query.'%')
+                                    ->where('kelola_kategori_id', $category_id)
+                                    ->where('status', 2)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->paginate(8);
+                    } else {
+                        $madings = KelolaMading::with('kelola_kategori')
+                                    ->where('kelola_kategori_id', $category_id)
+                                    ->where('status', 2)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->paginate(8);
+                    } 
+                }
+
+                // if($madings->count() > 0) {
+                //     foreach($madings as $mading) {
+                //         $html .= '
+                //                 <div class="my-3 mx-3">
+                //                 <div class="card shadow text-center bg-white" style="width: 250px; height: 370px; background-color: #11638a;">
+                //                     <div class="card-header">
+                //                         <h3>'.$mading->kelola_kategori->kategori.'</h2>
+                //                     </div>
+                //                     <a href="'.url('/mading/'.$mading->id).'">
+                //                         <img class="card-img-top" style="width: 100%; height: 15vw; object-fit:cover;" src="/storage/'.$mading->gambar.'" alt="">
+                //                     </a>
+                //                     <div class="card-body">
+                //                         <h6 class="card-title text-truncate">'.$mading->deskripsi.'</h6>
+                //                         <p> Terbit: '.$mading->updated_at.'</p>
+                //                     </div>
+                //                 </div>
+                //             </div>
+                //         ';
+                //     }
+                // } else {
+                //     $html = '<p class="text-center">Data tidak ditemukan 😭</p>';
+                // }
             }
+
+            return response()->json($madings);
 
         } catch(\Exception $e) {
             return response()->json($e);

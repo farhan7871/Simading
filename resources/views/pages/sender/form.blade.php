@@ -21,10 +21,13 @@
                             </select>   
                         </div>
                         <div class="form-group">
+                            <label for="judul">Judul</label>
+                            <input type="text" class="form-control" name="judul" placeholder="Judul" required>
+                        </div>
+                        <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
                             <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" required>
                         </div>
-            
                         <div class="form-group">
                             <label for="gambar">Gambar</label>
                             <input type="file" class="form-control" name="gambar" placeholder="gambar" required>

@@ -57,6 +57,7 @@ class KelolaMadingSenderController extends Controller
             $mading = new KelolaMading;
             $mading->users_id = Auth::user()->id;
             $mading->kelola_kategori_id = $request->kategori_id;
+            $mading->judul = $request->judul;
             $mading->deskripsi = $request->deskripsi;
             $mading->status = 1;
 
