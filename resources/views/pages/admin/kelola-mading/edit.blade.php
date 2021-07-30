@@ -43,6 +43,11 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="judul">Judul</label>
+                    <input type="text"  class="form-control" name="judul" placeholder="judul" value="{{$item->judul}}">
+                </div>
                 
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi</label>

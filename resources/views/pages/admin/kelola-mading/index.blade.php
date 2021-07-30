@@ -23,7 +23,7 @@
                             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right"
                                 method="GET" action="{{route('kelola-mading.index')}}">
                                 <div class="input-group">
-                                    <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Cari deskripsi mading..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <input name="cari" type="text" class="form-control bg-light border-0 small" placeholder="Cari judul mading..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -38,7 +38,7 @@
                                             <th style="width:5%"><center>ID</th>
                                             <th style="width:20%"><center>Gambar Mading</th>
                                             <th style="width:10%"><center>Kategori</th>
-                                            <th style="width:15%"><center>Deskripsi</th>
+                                            <th style="width:15%"><center>Judul</th>
                                             <th style="width:13%"><center>Diterbitkan</th>
                                             <th style="width:10%"><center>Pengirim</th>
                                             <th style="width:10%"><center>Status</th>
@@ -55,7 +55,7 @@
                                                 </td>
                                                 <td>{{$item -> kelola_kategori -> kategori}}</td>
 
-                                                <td>{{$item -> deskripsi}}</td>
+                                                <td>{{$item -> judul}}</td>
 
                                                 <td>{{$item -> updated_at}}</td>
 
@@ -75,6 +75,7 @@
                                                     <center>
                                                         <a id="detail" href="#" class="btn btn-success" data-toggle="modal" data-target="#modal-verif"
                                                             data-id="{{$item->id}}"
+                                                            data-judul="{{$item->judul}}"
                                                             data-status="{{$item->status}}"
                                                             data-kategori="{{$item->kelola_kategori->kategori}}"
                                                             data-deskripsi="{{$item->deskripsi}}"
@@ -127,6 +128,10 @@
                                     <input disabled type="text" class="form-control" id="mading_id">
                                 </div>
                                 <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Judul</label>
+                                    <input disabled type="text" class="form-control" id="mading_judul">
+                                </div>
+                                <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Kategori</label>
                                     <input disabled type="text" class="form-control" id="mading_kategori">
                                 </div>
@@ -168,6 +173,7 @@
                         // store data temp kedalam var temp
                         var id_mading_temp = $(this).data('id')
                         id_mading_global = id_mading_temp
+                        var judul_mading_temp = $(this).data('judul')
                         var status_mading_temp = $(this).data('status')
                         var kategori_mading_temp = $(this).data('kategori')
                         var deskripsi_mading_temp = $(this).data('deskripsi')
@@ -177,6 +183,7 @@
 
                         // fill data to modal
                         $('#mading_id').val(id_mading_temp)
+                        $('#mading_judul').val(judul_mading_temp)
                         $('#mading_kategori').val(kategori_mading_temp)
                         $('#mading_deskripsi').val(deskripsi_mading_temp)
                         $('#mading_diterbitkan').val(diterbitkan_mading_temp)
