@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\KelolaKategori;
 use App\KelolaMading;
 use App\Suggestion;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -20,7 +21,10 @@ class HomeController extends Controller
                     ->orderBy('created_at', 'DESC')
                     ->paginate(8);
 
-        $categories = KelolaKategori::has('kelola_mading')->get();
+        // get semua kategori yang sesuai dengan mading yang berstatus 2
+        $categories = KelolaKategori::whereHas('kelola_mading', function (Builder $query) {
+            $query->where('status', 2);
+        })->get();
 
         return view('welcome', [
             'items' => $items,

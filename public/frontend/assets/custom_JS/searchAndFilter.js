@@ -52,11 +52,14 @@ function fetch_data(id, query = '') {
                 // jika data kosong
                 $('#data-madings-div').html(`<div class="col"><p class="text-center">Data tidak ditemukan 😭</p></div>`);
             } else {
+                $('#data-madings-div').empty()
                 var iter = 0
                 // iterasi append element html
                 response.data.forEach(element => {
                     iter++
+                    const date = new Date(element.updated_at)
                     console.log('iterasi: '+iter)
+                    console.log(element.created_at)
                     $('#data-madings-div').append(`
                     <div class="my-3 mx-3">
                         <div class="card shadow text-center bg-white" style="width: 250px; height: 370px; background-color: #11638a;">
@@ -67,8 +70,9 @@ function fetch_data(id, query = '') {
                                 <img class="card-img-top" style="width: 100%; height: 15vw; object-fit:cover;" src="/storage/${element.gambar}" alt="">
                             </a>
                             <div class="card-body">
-                                <h6 class="card-title text-truncate"> ${element.deskripsi}</h6>
-                                <p> Terbit: ${element.created_at}</p>
+                                <h5 class="card-title text-truncate"> ${element.judul}</h6>
+                                <h6 class="card-text text-truncate"> ${element.deskripsi}</h6>
+                                <p> Terbit: ${date.toLocaleString('in-ID', {day: 'numeric', month: 'long', year: 'numeric'})}</p>
                             </div>
                         </div>
                     </div>

@@ -135,7 +135,7 @@
                             @if ($item->created_at == null || $item->created_at == '')
                                 <p> Terbit: {{ __('Tidak diketahui') }}</p>
                             @else
-                                <p> Terbit: {{$item->created_at->isoFormat('DD MMMM YYYY')}}</p>
+                                <p> Terbit: {{$item->updated_at->isoFormat('DD MMMM YYYY')}}</p>
                             @endif
                         </div>
                     </div>
